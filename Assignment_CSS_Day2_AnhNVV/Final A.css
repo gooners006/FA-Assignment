@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+
+/* create header */
+
+.header {
+    padding: 30px;
+    text-align: center;
+}
+
+
+/* black-bordered span tag */
+
+.name {
+    border-radius: 100px;
+    background-color: black;
+    color: white;
+    padding: 1px 5px 1px 5px;
+}
+
+
+/* create 2 column  ratio 2-1 */
+
+.leftcolumn {
+    float: left;
+    width: 66%;
+}
+
+.rightcolumn {
+    float: right;
+    width: 33%;
+    padding-left: 5%;
+}
+
+
+/* style card */
+
+.card {
+    background-color: white;
+    padding: 5%;
+    margin-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* prevent the footer from floating */
+
+.row {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* footer div */
+
+.footer {
+    padding: 20px;
+    background: gray;
+    margin-top: 5%;
+}
+
+
+/* card image */
+
+.image {
+    position: relative;
+    width: 100%;
+}
+
+
+/* float comment to the right */
+
+.comment {
+    float: right;
+}
+
+
+/* popular posts  */
+
+.post {
+    background-color: white;
+    margin-top: 2%;
+    border: white solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-header {
+    background: rgba(202, 195, 195, 0.932);
+    padding: 5%;
+}
+
+.post h3 {
+    font-weight: 100;
+}
+
+.post-body {
+    max-width: 100%;
+}
+
+.post-body .post-title {
+    margin-bottom: 6px;
+}
+
+.post-body .desc {
+    margin-top: 0;
+}
+
+.post-body ul {
+    border-bottom: #e0d5d5 solid 1px;
+    margin-bottom: 0;
+}
+
+.post img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.post ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.post a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.post a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.post a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.post a:active {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* tag */
+
+.tag {
+    background-color: white;
+    margin-top: 2%;
+    border: white solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tag-header {
+    background: rgba(202, 195, 195, 0.932);
+    padding: 5%;
+}
+
+.posttags {
+    list-style: none;
+    padding: 5%;
+}
+
+.posttags li {
+    background: rgb(238, 226, 226);
+    border-radius: 30px;
+    display: inline-block;
+    margin: 2%;
+    position: relative;
+    text-align: center;
+}
+
+.posttags li a {
+    color: #af234d;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+}
+
+
+/* button */
+
+.pre-button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.next-button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.post-button {
+    background-color: white;
+    border: black solid 1px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/* responsive layout */
+
+@media (max-width: 720px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
