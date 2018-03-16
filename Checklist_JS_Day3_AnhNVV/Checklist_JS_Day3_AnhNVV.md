@@ -117,9 +117,26 @@ function f(a) {
 var g = new f(2);
 console.log(g.a); // ???
 ```
-Viết dụ kết hợp cả 4 cách gọi hàm để chỉ ra thứ tự khi gọi hàm ảnh hưởng đến this ra sao?
-* Từ đó theo em quy tác để xác định this là gì?
-* new (new binding) -> call or apply (explicit binding) ->  (implicit binding) ->  (default binding)
-1.2 Objects
-Liệt kê lại 6 kiểu nguyên thuỷ trong JS ? liệt kê những kiểu Object có sẵn trong JS?
-Có những cách nào để clone 1 object ?
+* Viết dụ kết hợp cả 4 cách gọi hàm để chỉ ra thứ tự khi gọi hàm ảnh hưởng đến this ra sao?
+    * Từ đó theo em quy tác để xác định this là gì?
+    * new (new binding) -> call or apply (explicit binding) ->  (implicit binding) ->  (default binding)
+* 1.2 Objects
+* Liệt kê lại 6 kiểu nguyên thuỷ trong JS ? liệt kê những kiểu Object có sẵn trong JS?
+    * 6 kiểu nguyên thủy:
+        * string
+        * number
+        * boolean
+        * null
+        * undefined
+        * object
+    * những kiểu Object có sẵn trong JS: 
+        * String
+        * Number
+        * Boolean
+        * Object
+        * Function
+        * Array
+        * Date
+        * RegExp
+        * Error
+* Có những cách nào để clone 1 object ?
