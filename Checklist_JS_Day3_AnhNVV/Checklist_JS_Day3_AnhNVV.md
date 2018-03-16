@@ -140,3 +140,4 @@ console.log(g.a); // ???
         * RegExp
         * Error
 * Có những cách nào để clone 1 object ?
+
