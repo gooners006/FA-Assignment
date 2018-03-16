@@ -34,6 +34,7 @@ function g() {
 f();
 ```
   Sai. this trong trường hợp này không trỏ đến được scope của hàm f()
+  
 So sánh các dạng gọi hàm như code:
   ```
   fn(); //function invocation. gọi hàm thông thường, this sẽ trỏ đến object global. (default binding)
