@@ -103,8 +103,23 @@ var o = {
   a: 2
 };
 
-var g = f.apply(o);
+var g = f.apply(o); // trả về giá trị của hàm f khi được gọi -> in ra 2 nhưng không gán được cho g
 
-f.call(o); // ??
-g(); // ??
+f.call(o); // in ra 2
+g(); // vì g không phải là 1 hàm nên không thể gọi như một hàm => lỗi
 ```
+Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
+```
+function f(a) {
+  this.a = a;
+}
+
+var g = new f(2);
+console.log(g.a); // ???
+```
+Viết dụ kết hợp cả 4 cách gọi hàm để chỉ ra thứ tự khi gọi hàm ảnh hưởng đến this ra sao?
+* Từ đó theo em quy tác để xác định this là gì?
+* new (new binding) -> call or apply (explicit binding) ->  (implicit binding) ->  (default binding)
+1.2 Objects
+Liệt kê lại 6 kiểu nguyên thuỷ trong JS ? liệt kê những kiểu Object có sẵn trong JS?
+Có những cách nào để clone 1 object ?
