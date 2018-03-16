@@ -2,7 +2,7 @@
     1. this
     this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
       this là một con trỏ chỉ vào hàm nó nằm trong
-    *. Cách hiểu 1: this trỏ tới function f, đúng hay sai?
+    * Cách hiểu 1: this trỏ tới function f, đúng hay sai?
     ```
     function f(num) {
       console.log("f: " + num);
@@ -20,7 +20,7 @@
     console.log(f.count); // ???
     ```
       Sai. this này đang trỏ tới một biến count global, không phải trong f()
-    *. Cách hiểu 2: this trỏ tới scope của function, đúng hay sai?
+    * Cách hiểu 2: this trỏ tới scope của function, đúng hay sai?
     ```
     function f() {
       var a = 2;
