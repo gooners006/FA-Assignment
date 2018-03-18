@@ -161,5 +161,25 @@ console.log(g.a); // in ra 2
 		* Tính đa hình (polymorphism): Thể hiện thông qua việc gửi các thông điệp (message). Việc gửi các thông điệp này có thể so sánh như việc gọi các hàm bên trong của một đối tượng. Các phương thức dùng trả lời cho một thông điệp sẽ tùy theo đối tượng mà thông điệp đó được gửi tới sẽ có phản ứng khác nhau. Người lập trình có thể định nghĩa một đặc tính (chẳng hạn thông qua tên của các phương thức) cho một loạt các đối tượng gần nhau nhưng khi thi hành thì dùng cùng một tên gọi mà sự thi hành của mỗi đối tượng sẽ tự động xảy ra tương ứng theo đặc tính của từng đối tượng mà không bị nhầm lẫn. 
 			* Ví dụ khi định nghĩa hai đối tượng "hinh_vuong" và "hinh_tron" thì có một phương thức chung là "chu_vi". Khi gọi phương thức này thì nếu đối tượng là "hinh_vuong" nó sẽ tính theo công thức khác với khi đối tượng là "hinh_tron".
 		* Tính kế thừa (inheritance): Đặc tính này cho phép một đối tượng có thể có sẵn các đặc tính mà đối tượng khác đã có thông qua kế thừa. Điều này cho phép các đối tượng chia sẻ hay mở rộng các đặc tính sẵn có mà không phải tiến hành định nghĩa lại. Tuy nhiên, không phải ngôn ngữ định hướng đối tượng nào cũng có tính chất này.
-    
+* So sánh "class" và "instance"
+	* Class chỉ là một bản thiết kế. Để có một object ta có thể tương tác thì ta cần khởi tạo từ một class, kết quả của việc khởi tạo này là một instance, ta có thể gọi trực tiếp các phương thức lên nó và truy cập các dữ liệu thuộc tính public.
+* Constructor là gì?
+	* hàm constructor được dùng để định nghĩa các thuộc tính và phương thức ban đầu cho đối tượng 
+* 1.5 Prototypes
+* Xem xét đoạn code sau, em có nhận xét gì ?
+```
+var o1 = {
+  a: 2
+}
+
+var o2 = Object.create(o1);
+
+console.log(o2.a); // in ra 2
+
+o1.a = 10;
+console.log(o2.a); // in ra 10
+Nhận xét: o2 như là clone của o1, khi các key trong o1 thay đổi thì các giá trị trong o2 cũng thay đổi theo
+```
+* Tìm hiểu về Oject.prototype    
+	* là một object được built-in  ở  [[Property chain]] (_proto_), chứa các tiện ích thường xuyên được dùng như .toString() hay .hasOwnProperty(..)
  
