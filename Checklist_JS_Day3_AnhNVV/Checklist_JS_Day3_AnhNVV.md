@@ -114,8 +114,8 @@ function f(a) {
   this.a = a;
 }
 
-var g = new f(2);
-console.log(g.a); // ???
+var g = new f(2); 
+console.log(g.a); // in ra 2
 ```
 * Viết dụ kết hợp cả 4 cách gọi hàm để chỉ ra thứ tự khi gọi hàm ảnh hưởng đến this ra sao?
     * Từ đó theo em quy tác để xác định this là gì?
@@ -140,4 +140,20 @@ console.log(g.a); // ???
         * RegExp
         * Error
 * Có những cách nào để clone 1 object ?
-
+    * Em chưa hiểu lắm về phần này
+* 1.3 Iteration
+* Có những cách nào để duyệt các phần tử trong 1 array ? Viết code ví dụ
+    * Sử dụng vòng lặp for để duyệt qua các index. VD: 
+        * var myArray = [1, 2, 3];
+        * for (var i = 0; i < myArray.length; i++) {
+	        * console.log( myArray[i] );
+        * }
+        * ngoài ra còn có thêm một số cách nữa như forEach(), every(), some()
+    * ES6 hỗ trợ for...of để duyệt qua giá trị của phần tử
+* Có những cách nào để duyệt các thuộc tính trong 1 object? Viết code ví dụ
+    * Cũng có thể dùng for...of
+* 1.4 Class Theory
+* Nhớ lại OOP là gì ? các thuộc tính của OOP? 
+    * Lập trình hướng đối tượng: đối tượng chứa đựng các dữ liệu, trên các trường, thường được gọi là các thuộc tính; và mã nguồn, được tổ chức thành các phương thức. Phương thức giúp cho đối tượng có thể truy xuất và hiệu chỉnh các trường dữ liệu của đối tượng khác, mà đối tượng hiện tại có tương tác (đối tượng được hỗ trợ các phương thức "this" hoặc "self"). 
+    
+ 
