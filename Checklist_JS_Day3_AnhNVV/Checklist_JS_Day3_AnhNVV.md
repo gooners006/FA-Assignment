@@ -162,7 +162,7 @@ console.log(g.a); // in ra 2
 			* Ví dụ khi định nghĩa hai đối tượng "hinh_vuong" và "hinh_tron" thì có một phương thức chung là "chu_vi". Khi gọi phương thức này thì nếu đối tượng là "hinh_vuong" nó sẽ tính theo công thức khác với khi đối tượng là "hinh_tron".
 		* Tính kế thừa (inheritance): Đặc tính này cho phép một đối tượng có thể có sẵn các đặc tính mà đối tượng khác đã có thông qua kế thừa. Điều này cho phép các đối tượng chia sẻ hay mở rộng các đặc tính sẵn có mà không phải tiến hành định nghĩa lại. Tuy nhiên, không phải ngôn ngữ định hướng đối tượng nào cũng có tính chất này.
 * So sánh "class" và "instance"
-	* Class chỉ là một bản thiết kế. Để có một object ta có thể tương tác thì ta cần khởi tạo từ một class, kết quả của việc khởi tạo này là một instance, ta có thể gọi trực tiếp các phương thức lên nó và truy cập các dữ liệu thuộc tính public.
+	* Class chỉ là một bản thiết kế. Để có một object ta có thể tương tác thì ta cần khởi tạo từ một class, kết quả của việc khởi tạo này là một instance, ta có thể gọi trực tiếp các phương thức lên nó và truy cập các thuộc tính dữ liệu public nằm trong nó.
 * Constructor là gì?
 	* hàm constructor được dùng để định nghĩa các thuộc tính và phương thức ban đầu cho đối tượng 
 * 1.5 Prototypes
