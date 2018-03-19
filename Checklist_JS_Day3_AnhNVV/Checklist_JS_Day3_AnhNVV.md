@@ -181,5 +181,5 @@ console.log(o2.a); // in ra 10
 Nhận xét: o2 như là clone của o1, khi các key trong o1 thay đổi thì các giá trị trong o2 cũng thay đổi theo
 ```
 * Tìm hiểu về Oject.prototype    
-	* là một object được built-in  ở  [[Property chain]] (_proto_), chứa các tiện ích thường xuyên được dùng như .toString() hay .hasOwnProperty(..)
+	* là một object được built-in  ở  [[Property chain]] (_ proto _), chứa các tiện ích thường xuyên được dùng như .toString() hay .hasOwnProperty(..)
  
