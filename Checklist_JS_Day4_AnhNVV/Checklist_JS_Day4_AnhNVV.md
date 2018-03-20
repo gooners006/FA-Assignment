@@ -10,7 +10,6 @@
   * Cách hoạt động: 
     * Trong JS, hàm không bao giờ được gọi trực tiếp, mà phải qua message.
     * JS sử dụng 1 messages queue để lưu trữ các message hay event được gửi đến. Một event-loop điều phối message lần lượt đến một call-stack, ở đây các hàm tương ứng của các message được xếp chồng lên nhau thành các frame(các argument và variable của hàm) để thực thi
-    * call-stack sẽ giữ frame của hàm ban đầu được gọi ở trên cùng
     * khi một message mới tham gia vào hàng chờ(queue), nó sẽ đợi cho đến khi call-stack không còn frame nào của message trước nữa, và khi đó thì event-loop sẽ bỏ message trước khỏi hàng chờ và thêm những frame của message hiện tại vào call-stack
     * message đó sẽ lại đợi cho đến khi call-stack hết những frame của chính nó(tức là khi đã thực thi hết những function được stack) thì nó rời hàng chờ
 * 1.2 setTimeout
@@ -27,7 +26,7 @@ setTimeout(function () {
   console.log('General Kenobi');
 }, 1500);
 ```
- * How about this one, can you guess ?
+   * How about this one, can you guess ?
  ```
  console.log('Hi');
 
@@ -36,8 +35,28 @@ setTimeout(function () {
 }, 0);
 console.log('Hi again');
 ```
-  * Từ ví dụ trên em có nhận xét gì ?
-    * setTimeout sẽ được thực thi sau cùng
+    * Từ ví dụ trên em có nhận xét gì ?
+      * setTimeout sẽ được thực thi sau cùng
 * 1.3 Event Loop
   * Tìm hiểu về Event loop, và giải thích lại đoạn code trên theo ý hiểu của em.
-  
+   * Đầu tiên chương trình chạy console.log đầu tiên, sau đó khi thấy setTimeout sẽ được API thực hiện, rồi đưa xuống queue. Chương trình chạy tiếp console.log thứ 2. Khi này stack đã empty thì event-loop mới đẩy function từ queue lên stack
+* 1.4 Callbacks
+  * Tìm hiểu về callback funtions trong JS: 
+   * trong JS, function là object nên có thể nhận function khác làm argument và trả lại một fuction khác, chúng gọi là higher-order function. những function bị truyền vào dưới dạng một argument và được gọi bởi higher-order function đó là callback function
+   * Người ta nói callback functions đóng gói tính liên tục của chương trình. Theo em chương trình dưới sẽ được chạy liên tục ra sao?
+    * 1-3-2: chương trình chạy đến 1, sau khi chạy xong sẽ đến setTimeout, khi đó sẽ đưa function chứa 2 vào api đợi 1s. trong lúc đó chương trình chạy 3. sau khi đợi hết 1s thì function chứa 2 sẽ được đưa vào queue, khi event-loop thấy trong queue có message và stack đang empty thì sevent-loop đẩy function 2 lên stack. Khi đó chương trình thực hiện function 2.
+ * 1.4.1 Nested/Chained Callbacks
+  * Set đoạn code sau, khi người dùng click vào btn thì điều gì xảy ra?
+  ```
+  // (0)
+var btn = document.getElementById('btn');
+btn.addEventListener('click', function () {
+  // (1)
+  setTimeout(function () {
+    // (2)
+  }, 1000);
+  // (3)
+});
+```
+  * Theo eo những điểu bất lợi của callbacks là gì ? liên quan đến: code readability, code security, handle errors code, code reusability
+   * 
