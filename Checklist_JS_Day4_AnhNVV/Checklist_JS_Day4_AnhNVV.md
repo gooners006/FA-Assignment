@@ -5,13 +5,7 @@
   * Async code (code bất đồng bộ) là gì ?
   	* là chương trình có thể nhảy đi bỏ qua một bước nào đó.
   * Theo em JavaScript là ngôn ngữ đồng bộ hay bất đồng bộ
-  	* ngôn ngữ lập trình không đồng bộ. Đó là do:
-    * JS là ngôn ngữ thực hiện nhiều bên client. Khi thực hiện thì client cần gửi request lên server, và trong lúc chờ server trả lời thì sẽ gửi tiếp những request khác để tiết kiệm thời gian. Đó là xử lí bất đồng bộ.
-  * Cách hoạt động: 
-    * Trong JS, hàm không bao giờ được gọi trực tiếp, mà phải qua message.
-    * JS sử dụng 1 messages queue để lưu trữ các message hay event được gửi đến. Một event-loop điều phối message lần lượt đến một call-stack, ở đây các hàm tương ứng của các message được xếp chồng lên nhau thành các frame(các argument và variable của hàm) để thực thi
-    * khi một message mới tham gia vào hàng chờ(queue), nó sẽ đợi cho đến khi call-stack không còn frame nào của message trước nữa, và khi đó thì event-loop sẽ bỏ message trước khỏi hàng chờ và thêm những frame của message hiện tại vào call-stack
-    * message đó sẽ lại đợi cho đến khi call-stack hết những frame của chính nó(tức là khi đã thực thi hết những function được stack) thì nó rời hàng chờ
+  	* ngôn ngữ lập trình đồng bộ nhưng có cơ chế bất đồng bộ do trình duyệt hỗ trợ
 * 1.2 setTimeout
   * Cho hàm setTimeout có định nghĩa như sau: https://www.w3schools.com/jsref/met_win_settimeout.asp
   * Set đoạn code sau, hãy mô tả chính xác những gì xảy ra và kết quả in ra là gì ?
@@ -75,3 +69,9 @@ btn.addEventListener('click', function () {
   	* sử dụng catch()
  * How to chain Promises ?
  	* sử dụng then()
+ * Promise.all()
+   * trả lại 1 promise được resolve khi tất cả các promise được truyền vào đã được resolve hoặc là khi tham số không chứa promise nào. Promise.all() reject khi promise có một promise bị reject 
+ * Promise.race()
+   * trả lại một promise sẽ được resolve hay reject ngay khi một trong số promise được truyền vào resolve hoặc reject 
+ * finally
+   * thực hiện một callback khi promise đã xong, resolve hoặc reject
