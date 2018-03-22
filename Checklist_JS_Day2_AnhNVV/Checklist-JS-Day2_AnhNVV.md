@@ -63,6 +63,7 @@ f2(2);
 - 1: scope toàn cục, chỉ chứa foo 
 - 2: scope của foo, chứa a, b, bar 
 - 3: scope của bar, chỉ chứa c
+```
 function foo(a) {
 
   var b = a * 2;
@@ -75,6 +76,7 @@ function foo(a) {
 }
 
 foo(2); // ?? ?? ??
+```
 1.4 Function vs Block Scope
 Xử dụng IIFE để tạo function scope 
 var a = 2; 
