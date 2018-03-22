@@ -1,7 +1,6 @@
-1. this & Object prototype
-    1. this
-    this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
-      this là một con trỏ chỉ vào hàm nó nằm trong
+* 1. this & Object prototype
+    * this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
+    	* this là một con trỏ chỉ vào hàm nó nằm trong
     * Cách hiểu 1: this trỏ tới function f, đúng hay sai?
     ```
     function f(num) {
