@@ -60,9 +60,11 @@ btn.addEventListener('click', function () {
 * 1.5 Promises
  * Tìm hiểu về Promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
  * What is a future value ?
-   * là một giá trị giữ chỗ thay cho giá trị thật, khi nào chương trình có giá trị thật thì sẽ thay giá trị đó vào giá trị giữ chỗ. Giá trị giữ chỗ giúp cho giá trị thật không phụ thuộc vào thời gian, phục vụ cho việc lập trình bất đồng bộ
+   * là một giá trị sẽ được trả về tại một thời điểm trong tương lai
  * Promise value ?
+   * là giá trị khi thời điểm trong tương lai đến, promise có trả lại giá trị nào hay không
  * Promise Events ?
+   * promise sẽ chạy code cho đến khi nào có sự kiện resolve hoặc reject rồi sẽ có ".then". ".then" là promsie event
  * How to get Promise value?
  * How to handle error in Promise ?
   	* sử dụng split callback: 1 callback cho việc hoàn thành và 1 callback cho việc báo lỗi
