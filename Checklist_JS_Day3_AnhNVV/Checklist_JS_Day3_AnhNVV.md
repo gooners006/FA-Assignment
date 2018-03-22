@@ -1,6 +1,6 @@
 * 1. this & Object prototype
     * this là một trong những cơ chế gây rối nhất trong JS, theo em this là gì ?
-    	* this là một con trỏ chỉ vào hàm nó nằm trong
+    	* this là một con trỏ, nơi nó chỉ vào phụ thuộc vào cách nó được gọi như thế nào
     * Cách hiểu 1: this trỏ tới function f, đúng hay sai?
     ```
     function f(num) {
@@ -32,7 +32,7 @@
 
     f();
     ```
-      Sai. this trong trường hợp này không trỏ đến được scope của hàm f()
+      Sai. this trong trường hợp này không trỏ đến được scope của hàm f(), vẫn trỏ đến global
 
     * So sánh các dạng gọi hàm như code:
       ```
@@ -57,7 +57,7 @@ Cho đoạn code sau, kết quả in ra là gì ?
 ```
 function g() {
   "use strict";
-  console.log(this.b);// báo lỗi vì lúc này this không trỏ được ra nơi biến b được khai báo
+  console.log(this.b);// báo lỗi vì lúc này this sẽ là undefined
 }
 
 var b = 2;
@@ -90,7 +90,7 @@ var o = {
 
 var g = o.f;
 
-g(); //  g tham chiếu đến f() chứ không đến o và gọi hàm g() thì sẽ tìm biến a ở global scope -> undefined
+g(); //  gọi g() như vậy thì là function invocation -> this trỏ tới global
 ```
 Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
 ```
@@ -102,9 +102,9 @@ var o = {
   a: 2
 };
 
-var g = f.apply(o); // trả về giá trị của hàm f khi được gọi -> in ra 2 nhưng không gán được cho g
+var g = f.apply(o); // trả về giá trị của hàm f khi được gọi -> in ra 2 nhưng không gán được cho g, this trỏ vào o
 
-f.call(o); // in ra 2
+f.call(o); // in ra 2, this trỏ vào o
 g(); // vì g không phải là 1 hàm nên không thể gọi như một hàm => lỗi
 ```
 Cho đoạn code sau, kết quả in ra là gì ? hàm được gọi theo cách nào? theo em trong trường hợp này this trỏ vào đối tượng nào ?
@@ -114,7 +114,7 @@ function f(a) {
 }
 
 var g = new f(2); 
-console.log(g.a); // in ra 2
+console.log(g.a); // in ra 2, this trỏ vào g
 ```
 * Viết dụ kết hợp cả 4 cách gọi hàm để chỉ ra thứ tự khi gọi hàm ảnh hưởng đến this ra sao?
     * Từ đó theo em quy tác để xác định this là gì?
@@ -139,29 +139,30 @@ console.log(g.a); // in ra 2
         * RegExp
         * Error
 * Có những cách nào để clone 1 object ?
-    * Em chưa hiểu lắm về phần này
+    * var b = JSON.parse(JSON.Stringify(a))
 * 1.3 Iteration
 * Có những cách nào để duyệt các phần tử trong 1 array ? Viết code ví dụ
-    * Sử dụng vòng lặp for để duyệt qua các index. VD: 
-        * var myArray = [1, 2, 3];
-        * for (var i = 0; i < myArray.length; i++) {
-	        * console.log( myArray[i] );
-        * }
-        * ngoài ra còn có thêm một số cách nữa như forEach(), every(), some()
-    * ES6 hỗ trợ for...of để duyệt qua giá trị của phần tử
+    * for
+    * while 
+    * forEach()
+    * map()
+    * for ... of, for ... in
 * Có những cách nào để duyệt các thuộc tính trong 1 object? Viết code ví dụ
-    * Cũng có thể dùng for...of
+    * for...of, for ... in
 * 1.4 Class Theory
 * Nhớ lại OOP là gì ? các thuộc tính của OOP? 
-    * Lập trình hướng đối tượng: đối tượng chứa đựng các dữ liệu, trên các trường, thường được gọi là các thuộc tính; và mã nguồn, được tổ chức thành các phương thức. Phương thức giúp cho đối tượng có thể truy xuất và hiệu chỉnh các trường dữ liệu của đối tượng khác, mà đối tượng hiện tại có tương tác (đối tượng được hỗ trợ các phương thức "this" hoặc "self"). 
+    * Lập trình hướng đối tượng: là một kỹ thuật lập trình mô hình hóa đối tượng ngoài đời thành các đối tượng trong chương trình code, nhắm vào sự tương tác giữa các đối tượng
     * 4 thuộc tính: 
-    	* Tính trừu tượng (abstraction): Đây là khả năng của chương trình bỏ qua hay không chú ý đến một số khía cạnh của thông tin mà nó đang trực tiếp làm việc lên, nghĩa là nó có khả năng tập trung vào những cốt lõi cần thiết. Mỗi đối tượng phục vụ như là một "động tử" có thể hoàn tất các công việc một cách nội bộ, báo cáo, thay đổi trạng thái của nó và liên lạc với các đối tượng khác mà không cần cho biết làm cách nào đối tượng tiến hành được các thao tác. Tính chất này thường được gọi là sự trừu tượng của dữ liệu. Tính trừu tượng còn thể hiện qua việc một đối tượng ban đầu có thể có một số đặc điểm chung cho nhiều đối tượng khác như là sự mở rộng của nó nhưng bản thân đối tượng ban đầu này có thể không có các biện pháp thi hành. Tính trừu tượng này thường được xác định trong khái niệm gọi là lớp trừu tượng hay lớp cơ sở trừu tượng.
-		* Tính đóng gói (encapsulation) và che giấu thông tin (information hiding): Tính chất này không cho phép người sử dụng các đối tượng thay đổi trạng thái nội tại của một đối tượng. Chỉ có các phương thức nội tại của đối tượng cho phép thay đổi trạng thái của nó. Việc cho phép môi trường bên ngoài tác động lên các dữ liệu nội tại của một đối tượng theo cách nào là hoàn toàn tùy thuộc vào người viết mã. Đây là tính chất đảm bảo sự toàn vẹn của đối tượng.
-		* Tính đa hình (polymorphism): Thể hiện thông qua việc gửi các thông điệp (message). Việc gửi các thông điệp này có thể so sánh như việc gọi các hàm bên trong của một đối tượng. Các phương thức dùng trả lời cho một thông điệp sẽ tùy theo đối tượng mà thông điệp đó được gửi tới sẽ có phản ứng khác nhau. Người lập trình có thể định nghĩa một đặc tính (chẳng hạn thông qua tên của các phương thức) cho một loạt các đối tượng gần nhau nhưng khi thi hành thì dùng cùng một tên gọi mà sự thi hành của mỗi đối tượng sẽ tự động xảy ra tương ứng theo đặc tính của từng đối tượng mà không bị nhầm lẫn. 
-			* Ví dụ khi định nghĩa hai đối tượng "hinh_vuong" và "hinh_tron" thì có một phương thức chung là "chu_vi". Khi gọi phương thức này thì nếu đối tượng là "hinh_vuong" nó sẽ tính theo công thức khác với khi đối tượng là "hinh_tron".
-		* Tính kế thừa (inheritance): Đặc tính này cho phép một đối tượng có thể có sẵn các đặc tính mà đối tượng khác đã có thông qua kế thừa. Điều này cho phép các đối tượng chia sẻ hay mở rộng các đặc tính sẵn có mà không phải tiến hành định nghĩa lại. Tuy nhiên, không phải ngôn ngữ định hướng đối tượng nào cũng có tính chất này.
+    	* Tính trừu tượng (abstraction): khả năng tập trung vào cốt lõi cần thiết của đối tượng mà chương trình đang làm việc lên, bỏ qua một số khía cạnh thông chi tiết. Tính trừu tượng còn thể hiện qua việc một đối tượng ban đầu có thể có nhiều đặc điểm chung cho nhiều đối tượng khác nhưng bản thân nó không có các biện pháp thi hành. 
+			* VD: class con người ai cũng có method ăn, nói, đi, chạy,...
+		* Tính đóng gói (encapsulation) và che giấu thông tin (information hiding): đảm bảo được thông tin của đối tượng, không cho bên ngoài có quyền thay đổi các thuộc tính hay phương thức của đối tượng. 
+			* VD: có người qua nhà muốn mượn đồ nhưng mình không cho vào nhà mượn mà tự mình lấy đồ cho họ mượn
+		* Tính đa hình (polymorphism): các đối tượng có phương thức giống nhau nhưng thực thi khác nhau.
+			* VD: khi định nghĩa hai đối tượng "hinh_vuong" và "hinh_tron" thì có một phương thức chung là "chu_vi". Khi gọi phương thức này thì nếu đối tượng là "hinh_vuong" nó sẽ tính theo công thức khác với khi đối tượng là "hinh_tron".
+		* Tính kế thừa (inheritance): Đặc tính này cho phép một đối tượng có thể có sẵn các đặc tính mà đối tượng khác đã có thông qua kế thừa. Điều này cho phép các đối tượng chia sẻ hay mở rộng các đặc tính sẵn có mà không phải tiến hành định nghĩa lại. 
+			* VD: con có các gien giống cha như màu mắt, tóc,...
 * So sánh "class" và "instance"
-	* Class chỉ là một bản thiết kế. Để có một object ta có thể tương tác thì ta cần khởi tạo từ một class, kết quả của việc khởi tạo này là một instance, ta có thể gọi trực tiếp các phương thức lên nó và truy cập các thuộc tính dữ liệu public nằm trong nó.
+	* Class là một khung mô tả những thuộc tính và phương thức mình muốn thiết kế. Instance là vật thể được tạo ra từ class
 * Constructor là gì?
 	* hàm constructor được dùng để định nghĩa các thuộc tính và phương thức ban đầu cho đối tượng 
 * 1.5 Prototypes
