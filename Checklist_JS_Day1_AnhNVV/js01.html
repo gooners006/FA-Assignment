@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <!-- 2018-03-13 Tue 14:15 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Org-mode">
+    <meta name="author" content="Duong Tran">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        /* org mode styles on top of twbs */
+        
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        
+        body {
+            font-size: 18px;
+            margin-bottom: 105px;
+        }
+        
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 101px;
+            background-color: #f5f5f5;
+        }
+        
+        footer>div {
+            padding: 10px;
+        }
+        
+        footer p {
+            margin: 0 0 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        #table-of-contents {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        blockquote p {
+            font-size: 18px;
+        }
+        
+        pre {
+            font-size: 16px;
+        }
+        
+        .footpara {
+            display: inline-block;
+        }
+        
+        figcaption {
+            font-size: 16px;
+            color: #666;
+            font-style: italic;
+            padding-bottom: 15px;
+        }
+        /* from twbs docs */
+        
+        .bs-docs-sidebar.affix {
+            position: static;
+        }
+        
+        @media (min-width: 768px) {
+            .bs-docs-sidebar {
+                padding-left: 20px;
+            }
+        }
+        /* All levels of nav */
+        
+        .bs-docs-sidebar .nav>li>a {
+            display: block;
+            padding: 4px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+        }
+        
+        .bs-docs-sidebar .nav>li>a:hover,
+        .bs-docs-sidebar .nav>li>a:focus {
+            padding-left: 19px;
+            color: #A1283B;
+            text-decoration: none;
+            background-color: transparent;
+            border-left: 1px solid #A1283B;
+        }
+        
+        .bs-docs-sidebar .nav>.active>a,
+        .bs-docs-sidebar .nav>.active:hover>a,
+        .bs-docs-sidebar .nav>.active:focus>a {
+            padding-left: 18px;
+            font-weight: bold;
+            color: #A1283B;
+            background-color: transparent;
+            border-left: 2px solid #A1283B;
+        }
+        /* Nav: second level (shown on .active) */
+        
+        .bs-docs-sidebar .nav .nav {
+            display: none;
+            /* Hide by default, but at >768px, show it */
+            padding-bottom: 10px;
+        }
+        
+        .bs-docs-sidebar .nav .nav>li>a {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 30px;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        
+        .bs-docs-sidebar .nav .nav>li>a:hover,
+        .bs-docs-sidebar .nav .nav>li>a:focus {
+            padding-left: 29px;
+        }
+        
+        .bs-docs-sidebar .nav .nav>.active>a,
+        .bs-docs-sidebar .nav .nav>.active:hover>a,
+        .bs-docs-sidebar .nav .nav>.active:focus>a {
+            padding-left: 28px;
+            font-weight: 500;
+        }
+        /* Nav: third level (shown on .active) */
+        
+        .bs-docs-sidebar .nav .nav .nav {
+            padding-bottom: 10px;
+        }
+        
+        .bs-docs-sidebar .nav .nav .nav>li>a {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 40px;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        
+        .bs-docs-sidebar .nav .nav .nav>li>a:hover,
+        .bs-docs-sidebar .nav .nav .nav>li>a:focus {
+            padding-left: 39px;
+        }
+        
+        .bs-docs-sidebar .nav .nav .nav>.active>a,
+        .bs-docs-sidebar .nav .nav .nav>.active:hover>a,
+        .bs-docs-sidebar .nav .nav .nav>.active:focus>a {
+            padding-left: 38px;
+            font-weight: 500;
+        }
+        /* Show and affix the side nav when space allows it */
+        
+        @media (min-width: 992px) {
+            .bs-docs-sidebar .nav>.active>ul {
+                display: block;
+            }
+            /* Widen the fixed sidebar */
+            .bs-docs-sidebar.affix,
+            .bs-docs-sidebar.affix-bottom {
+                width: 213px;
+            }
+            .bs-docs-sidebar.affix {
+                position: fixed;
+                /* Undo the static from mobile first approach */
+                top: 20px;
+            }
+            .bs-docs-sidebar.affix-bottom {
+                position: absolute;
+                /* Undo the static from mobile first approach */
+            }
+            .bs-docs-sidebar.affix .bs-docs-sidenav,
+            .bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+                margin-top: 0;
+                margin-bottom: 0
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            /* Widen the fixed sidebar again */
+            .bs-docs-sidebar.affix-bottom,
+            .bs-docs-sidebar.affix {
+                width: 263px;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            'use strict';
+
+            $('.bs-docs-sidebar li').first().addClass('active');
+
+            $(document.body).scrollspy({
+                target: '.bs-docs-sidebar'
+            });
+
+            $('.bs-docs-sidebar').affix();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="title"></h1>
+                <div id="outline-container-sec-1" class="outline-2">
+                    <h2 id="sec-1"><span class="section-number-2">1</span> Programming Code</h2>
+                    <div class="outline-text-2" id="text-1">
+                        <ul class="org-ul">
+                            <li>Program, source code, code là gì ?
+                            </li>
+                            <li>syntax là gì
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-2" class="outline-2">
+                    <h2 id="sec-2"><span class="section-number-2">2</span> Statements</h2>
+                    <div class="outline-text-2" id="text-2">
+                        <ul class="org-ul">
+                            <li>statement (câu lệnh) là gì ?
+                            </li>
+                            <li>Giải thích câu lệnh sau:
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript">a = b + <span style="color: #a45bad;">2</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-3" class="outline-2">
+                    <h2 id="sec-3"><span class="section-number-2">3</span> Expressions</h2>
+                    <div class="outline-text-2" id="text-3">
+                        <ul class="org-ul">
+                            <li>expression (biểu thức) là gì ? khác gì với statements ?
+                            </li>
+                            <li>Câu lệnh sau có bao nhiêu biểu thức
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript">a = b * <span style="color: #a45bad;">2</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-4" class="outline-2">
+                    <h2 id="sec-4"><span class="section-number-2">4</span> Executing a Program</h2>
+                    <div class="outline-text-2" id="text-4">
+                        <ul class="org-ul">
+                            <li>Chạy chương trình là gì ?
+                            </li>
+                            <li>làm sao máy tính có thể hiểu đc câu lệnh a = b * 2 ?
+                            </li>
+                            <li>interpreting là gì ?
+                            </li>
+                            <li>compiling là gì ?
+                            </li>
+                            <li>JS là dạng interpreted hay là compilied ?
+                            </li>
+                            <li>Sử dụng Developer Tools của Google Chrome hoặc Firefox để chạy chương trình sau:
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript">a = <span style="color: #a45bad;">21</span>;
+
+b = a * <span style="color: #a45bad;">2</span>;
+
+console.log<span style="color: #4f97d7;">(</span> b <span style="color: #4f97d7;">)</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-5" class="outline-2">
+                    <h2 id="sec-5"><span class="section-number-2">5</span> Operators</h2>
+                    <div class="outline-text-2" id="text-5">
+                        <ul class="org-ul">
+                            <li>Hiểu về operators trong JS, có các loại chính là:
+                                <ul class="org-ul">
+                                    <li>Assignment =
+                                    </li>
+                                    <li>Math: +,-,*,/
+                                    </li>
+                                    <li>Compound Assignment: +=, -<code>, *</code>, /=
+                                    </li>
+                                    <li>Increment/decrement: ++, &#x2013;
+                                    </li>
+                                    <li>Object Property Access: .
+                                    </li>
+                                    <li>Equality: <code>=, ==</code>, !=, !==
+                                    </li>
+                                    <li>Comparison: &lt;, &gt;, &lt;=, &gt;=
+                                    </li>
+                                    <li>Logical: &amp;&amp;, ||
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-6" class="outline-2">
+                    <h2 id="sec-6"><span class="section-number-2">6</span> Values &amp; Types</h2>
+                    <div class="outline-text-2" id="text-6">
+                        <ul class="org-ul">
+                            <li>JS có bao nhiêu kiểu data types? liệt kê từng kiểu và ví dụ
+                            </li>
+                            <li>Thay xxx bằng operator để xác định kiểu của dữ liệu trong JS ?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript">a = <span style="color: #2d9574;">"hello"</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"string"</span>
+
+a = <span style="color: #a45bad;">42</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"number"</span>
+
+a = <span style="color: #a45bad;">true</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"boolean"</span>
+
+a = <span style="color: #a45bad;">null</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"object"</span>
+
+a = <span style="color: #a45bad;">undefined</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"undefined"</span>
+
+a = <span style="color: #4f97d7;">{</span> name: <span style="color: #2d9574;">'A'</span> <span style="color: #4f97d7;">}</span>;
+xxx a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"object"</span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-7" class="outline-2">
+                    <h2 id="sec-7"><span class="section-number-2">7</span> Objects</h2>
+                    <div class="outline-text-2" id="text-7">
+                        <ul class="org-ul">
+                            <li>Đối tượng là gì ?
+                            </li>
+                            <li>Có những cách nào để truy xuất dữ liêu trong đối tượng
+                            </li>
+                            <li>Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o</span> = <span style="color: #4f97d7;">{</span>
+  a: <span style="color: #2d9574;">'hello'</span>,
+  b: <span style="color: #a45bad;">10</span>,
+  c: <span style="color: #a45bad;">true</span>
+<span style="color: #4f97d7;">}</span>;
+
+o.a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+o.b; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+o.c; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+
+o<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'a'</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+o<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'b'</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+o<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'c'</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">k</span> = <span style="color: #2d9574;">'a'</span>;
+o.k; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+o<span style="color: #4f97d7;">[</span>k<span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-8" class="outline-2">
+                    <h2 id="sec-8"><span class="section-number-2">8</span> Arrays</h2>
+                    <div class="outline-text-2" id="text-8">
+                        <ul class="org-ul">
+                            <li>Arrays là gì ? làm sao tạo 1 array [1, 2, 3];
+                            </li>
+                            <li>Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #4f97d7;">[</span>
+  <span style="color: #2d9574;">'hello'</span>,
+  <span style="color: #a45bad;">10</span>,
+  <span style="color: #a45bad;">true</span>
+<span style="color: #4f97d7;">]</span>;
+
+a<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+a<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+a<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+arr.length; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+<span style="color: #4f97d7; font-weight: bold;">typeof</span> a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+</pre>
+                        </div>
+                        <ul class="org-ul">
+                            <li>Làm sao để phân biệt array và object?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-9" class="outline-2">
+                    <h2 id="sec-9"><span class="section-number-2">9</span> Functions</h2>
+                    <div class="outline-text-2" id="text-9">
+                        <ul class="org-ul">
+                            <li>Function là gì ?
+                            </li>
+                            <li>1 hàm gồm những thành phần nào ?
+                            </li>
+                            <li>Có những cách nào để định nghĩa functions ? so sánh?
+                            </li>
+                            <li>Cho đoạn code sau, chỉ rõ gía trị của ??? là gì
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">10</span>;
+<span style="color: #4f97d7;">}</span>
+
+f.a = <span style="color: #2d9574;">'Hello'</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">typeof</span> f; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+<span style="color: #4f97d7; font-weight: bold;">typeof</span> f<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+<span style="color: #4f97d7; font-weight: bold;">typeof</span> f.a; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+<span style="color: #4f97d7; font-weight: bold;">typeof</span> f.b; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-10" class="outline-2">
+                    <h2 id="sec-10"><span class="section-number-2">10</span> Built-In Type Methods</h2>
+                    <div class="outline-text-2" id="text-10">
+                        <ul class="org-ul">
+                            <li>Cho đoạn code sau, chạy trên Console của Chrome, theo em length, toUpperCase, toFixed là gì ?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #2d9574;">'hello'</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = <span style="color: #a45bad;">123</span>;
+
+a.length;
+a.toUpperCase<span style="color: #4f97d7;">()</span>;
+b.toFixed<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">4</span><span style="color: #4f97d7;">)</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-11" class="outline-2">
+                    <h2 id="sec-11"><span class="section-number-2">11</span> Comparing Values</h2>
+                    <div class="outline-text-2" id="text-11">
+                        <ul class="org-ul">
+                            <li>Làm sao để so sánh giá trị ?
+                            </li>
+                            <li>Kết quả của phép so sánh luôn luôn là dạng dữ liệu gì ?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-12" class="outline-2">
+                    <h2 id="sec-12"><span class="section-number-2">12</span> Coercion</h2>
+                    <div class="outline-text-2" id="text-12">
+                        <ul class="org-ul">
+                            <li>Cho đoạn code sau, chạy trên Console của Chrome, em có nhận xét gì về giá trị của b và c? Từ đó rút ra coercion là gì ?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #a45bad;">10</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = Number<span style="color: #4f97d7;">(</span>a<span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">c</span> = a * <span style="color: #a45bad;">1</span>;
+
+a;
+b;
+c;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-13" class="outline-2">
+                    <h2 id="sec-13"><span class="section-number-2">13</span> Truthy &amp; Falsy</h2>
+                    <div class="outline-text-2" id="text-13">
+                        <ul class="org-ul">
+                            <li>Khi một giá trị không phải boolean cần chuyển sang boolean gì chuyện gì xảy ra? v/d dưới sẽ log ra như nào?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #a45bad;">10</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = <span style="color: #2d9574;">''</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>a<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'a is truthy'</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>b<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'b is truthy'</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-14" class="outline-2">
+                    <h2 id="sec-14"><span class="section-number-2">14</span> Equality</h2>
+                    <div class="outline-text-2" id="text-14">
+                        <ul class="org-ul">
+                            <li>Có bao nhiêu equality operators? (<code>=, ==</code>, !=, !==)
+                            </li>
+                            <li>So sánh khác nhau giữa: <code>= và ==</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-15" class="outline-2">
+                    <h2 id="sec-15"><span class="section-number-2">15</span> Inequality</h2>
+                    <div class="outline-text-2" id="text-15">
+                        <ul class="org-ul">
+                            <li>Có bao nhiêu inequality operators? (&lt;, &gt;, &lt;=, &gt;=)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-16" class="outline-2">
+                    <h2 id="sec-16"><span class="section-number-2">16</span> Varibles</h2>
+                    <div class="outline-text-2" id="text-16">
+                        <ul class="org-ul">
+                            <li>Biến (variables) là gì?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-17" class="outline-2">
+                    <h2 id="sec-17"><span class="section-number-2">17</span> Function Scopes</h2>
+                    <div class="outline-text-2" id="text-17">
+                        <ul class="org-ul">
+                            <li>Scope là gì ?
+                            </li>
+                            <li>Trong JS có những loại scope nào ?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-18" class="outline-2">
+                    <h2 id="sec-18"><span class="section-number-2">18</span> Conditionals</h2>
+                    <div class="outline-text-2" id="text-18">
+                        <ul class="org-ul">
+                            <li>Các dạng điều kiện trong JS ra sao? (if, if&#x2026;else, switch, (&#x2026;) ? (&#x2026;) : (&#x2026;)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-19" class="outline-2">
+                    <h2 id="sec-19"><span class="section-number-2">19</span> Strict mode</h2>
+                    <div class="outline-text-2" id="text-19">
+                        <ul class="org-ul">
+                            <li>Strict mode là gì ?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-20" class="outline-2">
+                    <h2 id="sec-20"><span class="section-number-2">20</span> Functions as Values</h2>
+                    <div class="outline-text-2" id="text-20">
+                        <ul class="org-ul">
+                            <li>Set đoạn code sau, em có nhận xét gì ?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">f</span> = <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span> <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">g</span> = <span style="color: #4f97d7; font-weight: bold;">function</span> abc<span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span> <span style="color: #4f97d7;">}</span>
+
+console.log<span style="color: #4f97d7;">(</span>f<span style="color: #4f97d7;">)</span>;
+
+console.log<span style="color: #4f97d7;">(</span>g<span style="color: #4f97d7;">)</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="outline-container-sec-21" class="outline-2">
+                    <h2 id="sec-21"><span class="section-number-2">21</span> Immediately Invoked Function Expressions (IIFEs)</h2>
+                    <div class="outline-text-2" id="text-21">
+                        <ul class="org-ul">
+                            <li>Xem xét đoạn code sau, em có nhận xét gì ?
+                            </li>
+                        </ul>
+                        <div class="org-src-container">
+
+                            <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">a</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span>abc<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>;
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span> b<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+   console.log<span style="color: #2d9574;">(</span>abc<span style="color: #2d9574;">)</span>;
+<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)()</span>;
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <nav id="table-of-contents">
+                    <div id="text-table-of-contents" class="bs-docs-sidebar">
+                        <ul class="nav">
+                            <li><a href="#sec-1">1. Programming Code</a></li>
+                            <li><a href="#sec-2">2. Statements</a></li>
+                            <li><a href="#sec-3">3. Expressions</a></li>
+                            <li><a href="#sec-4">4. Executing a Program</a></li>
+                            <li><a href="#sec-5">5. Operators</a></li>
+                            <li><a href="#sec-6">6. Values &amp; Types</a></li>
+                            <li><a href="#sec-7">7. Objects</a></li>
+                            <li><a href="#sec-8">8. Arrays</a></li>
+                            <li><a href="#sec-9">9. Functions</a></li>
+                            <li><a href="#sec-10">10. Built-In Type Methods</a></li>
+                            <li><a href="#sec-11">11. Comparing Values</a></li>
+                            <li><a href="#sec-12">12. Coercion</a></li>
+                            <li><a href="#sec-13">13. Truthy &amp; Falsy</a></li>
+                            <li><a href="#sec-14">14. Equality</a></li>
+                            <li><a href="#sec-15">15. Inequality</a></li>
+                            <li><a href="#sec-16">16. Varibles</a></li>
+                            <li><a href="#sec-17">17. Function Scopes</a></li>
+                            <li><a href="#sec-18">18. Conditionals</a></li>
+                            <li><a href="#sec-19">19. Strict mode</a></li>
+                            <li><a href="#sec-20">20. Functions as Values</a></li>
+                            <li><a href="#sec-21">21. Immediately Invoked Function Expressions (IIFEs)</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <footer id="postamble" class="">
+        <div>
+            <p class="author">Author: Duong Tran</p>
+            <p class="date">Created: 2018-03-13 Tue 14:15</p>
+            <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org-mode</a> 9.1.6)</p>
+        </div>
+    </footer>
+</body>
+
+</html>
