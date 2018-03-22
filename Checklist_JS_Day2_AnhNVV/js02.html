@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<!-- 2018-03-14 Wed 14:58 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Duong Tran">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Scope &amp; Closures</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Function Declartion vs Function Expressions</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">b</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span>b<span style="color: #bc6ec5;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+<span style="color: #4f97d7;">}</span>
+
+console.log<span style="color: #4f97d7;">(</span>b<span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+b<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #4f97d7; font-weight: bold;">function</span> b<span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span>a, b<span style="color: #bc6ec5;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+<span style="color: #4f97d7;">}</span>
+
+a<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">//  </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+b<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> What is Scope?</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Nested Scope</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì ?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>a + b<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = <span style="color: #a45bad;">2</span>;
+
+foo<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">4</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Errors</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Xem xét đoạn code sau, em có nhận xét gì ?
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f1</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>a + b1<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+f1<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+<p>
+Xem xét đoạn code sau, em có nhận xét gì ?
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f2</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  b2 = a;
+  console.log<span style="color: #bc6ec5;">(</span>a + b2<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+f2<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+<ul class="org-ul">
+<li>Nếu thêm strict mode vào f1 và f2 thì chuyện gì xảy ra ?
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Lexical Scope</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, kết quả in ra là gì ? em có thể giải thích tại sao? có bao nhiều scope đc tạo ra ? Trong từng scope có những biến gì ?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = a * <span style="color: #a45bad;">2</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">bar</span><span style="color: #bc6ec5;">(</span><span style="color: #7590db;">c</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    console.log<span style="color: #2d9574;">(</span>a, b, c<span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  bar<span style="color: #bc6ec5;">(</span>b * <span style="color: #a45bad;">3</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+foo<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">?? ?? ??</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Function vs Block Scope</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>Xử dụng IIFE để tạo function scope
+</li>
+<li>Trong JS có cách nào để tạo block scope?
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Hoisting</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì ?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript">a = <span style="color: #a45bad;">2</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span>;
+
+console.log<span style="color: #4f97d7;">(</span> a <span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì ?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript">console.log<span style="color: #4f97d7;">(</span> a <span style="color: #4f97d7;">)</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #a45bad;">2</span>;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Từ 2 ví dụ trên, theo em hoisting là gì ?
+</li>
+
+<li>Em có nhận xét gì về đoạn code sau:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript">foo<span style="color: #4f97d7;">()</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span> a <span style="color: #bc6ec5;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">undefined</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #a45bad;">2</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Scope Closures</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>Xem xét đoạn code sau, em có nhận xét gì ?
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #a45bad;">2</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">bar</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    console.log<span style="color: #2d9574;">(</span> a <span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">return</span> bar;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">baz</span> = foo<span style="color: #4f97d7;">()</span>;
+
+baz<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Theo em closure là gì ?
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Assignment</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Tạo hàm range(a, b) trả về array các số tự nhiên liên tiếp từ a =&gt; b. Ví dụ: range(1, 4) = [1, 2, 3, 4]
+</li>
+<li>Tạo hàm sum(array) tính tổng các số trong array. V/d sum([1, 2, 3, 4]) = 10;
+</li>
+<li>Tính sum(range(1, 10))
+</li>
+<li>Xử dụng lệ quy để viết hàm isEven(n); isEven(10) =&gt; true; isEven(3) =&gt; false
+</li>
+<li>Viết nốt body của hàm dưới, sao cho khi gọi sẽ hiện thị như comment
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">fn</span>, <span style="color: #7590db;">s</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #cc9393;">TODO</span>
+<span style="color: #4f97d7;">}</span>
+
+print<span style="color: #4f97d7;">(</span>console.log, <span style="color: #2d9574;">'a'</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">hi&#7875;n th&#7883; 'a'</span>
+print<span style="color: #4f97d7;">(</span>console.log, <span style="color: #a45bad;">10</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">hi&#7879;n th&#7883; 10</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Viết nốt body của hàm dưới, sao cho khi gọi sẽ hiện thị như comment
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">add</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span>, <span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> a + b
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">sub</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">a</span>, <span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> a - b;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">op</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">fn</span>, <span style="color: #7590db;">a</span>, <span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #cc9393;">TODO</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> ...;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">opAdd</span> = op<span style="color: #4f97d7;">(</span>add<span style="color: #4f97d7;">)</span>;
+opAdd<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">tr&#7843; v&#7873; 1 + 2</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">opSub</span> = op<span style="color: #4f97d7;">(</span>sub<span style="color: #4f97d7;">)</span>;
+opSub<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">tr&#7843; v&#7873; 3 - 1</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Viết hàm repeat nhận 2 tham số, tham số đầu tiên là 1 hàm fn, tham số thứ 2 là n, và gọi hàm fn n lần. Ví dụ:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+   console.log<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'a'</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">repeat</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">fn</span>, <span style="color: #7590db;">n</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #cc9393;">TODO</span>
+<span style="color: #4f97d7;">}</span>
+
+repeat<span style="color: #4f97d7;">(</span>foo, <span style="color: #a45bad;">10</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">hi&#7879;n th&#7883; ra a 10 l&#7847;n</span>
+</pre>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Scope &amp; Closures</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. Function Declartion vs Function Expressions</a></li>
+<li><a href="#sec-1-2">1.2. What is Scope?</a></li>
+<li><a href="#sec-1-3">1.3. Lexical Scope</a></li>
+<li><a href="#sec-1-4">1.4. Function vs Block Scope</a></li>
+<li><a href="#sec-1-5">1.5. Hoisting</a></li>
+<li><a href="#sec-1-6">1.6. Scope Closures</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Assignment</a></li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Duong Tran</p>
+<p class="date">Created: 2018-03-14 Wed 14:58</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org-mode</a> 9.1.6)</p>
+</div>
+</footer>
+</body>
+</html>
