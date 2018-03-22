@@ -12,16 +12,19 @@ b(); // ??
 ```
 * Xem xét đoạn code sau, em có nhận xét gì? 
 	* b() sẽ báo lỗi chưa được định nghĩa
+```
 var a = function b() {
    console.log(a, b); // ??
 }
 
 a(); //  ??
 b(); // ??
-1.2 What is Scope?
-1.2.1 Nested Scope
-Xem xét đoạn code sau, em có nhận xét gì ? 
-- biến toàn cục dù khai báo sau vẫn có thể được hàm ở trước nó sử dụng
+```
+* 1.2 What is Scope?
+	* 1.2.1 Nested Scope
+		* Xem xét đoạn code sau, em có nhận xét gì ? 
+			* biến toàn cục dù khai báo sau vẫn có thể được hàm ở trước nó sử dụng
+```
 function foo(a) {
   console.log(a + b);
 }
@@ -29,28 +32,31 @@ function foo(a) {
 var b = 2;
 
 foo(2); // 4
-1.2.2 Errors
-Xem xét đoạn code sau, em có nhận xét gì ? 
-- b1 chưa được định nghĩa nên sẽ báo lỗi
-
+```
+* 1.2.2 Errors
+	* Xem xét đoạn code sau, em có nhận xét gì ? 
+		* b1 chưa được định nghĩa nên sẽ báo lỗi
+```
 function f1(a) {
   console.log(a + b1);
 }
 
 f1(2);
-Xem xét đoạn code sau, em có nhận xét gì ? 
-- sẽ thực thi như bình thường bởi vì b2 lúc này đã là biến toàn cục
-
+```
+* Xem xét đoạn code sau, em có nhận xét gì ? 
+	* sẽ thực thi như bình thường bởi vì b2 lúc này đã là biến toàn cục
+```
 function f2(a) {
   b2 = a;
   console.log(a + b2);
 }
 
 f2(2);
-Nếu thêm strict mode vào f1 và f2 thì chuyện gì xảy ra ? 
-- f2 sẽ báo lỗi vì không đúng cú pháp
-1.3 Lexical Scope
-Xem xét đoạn code sau, kết quả in ra là gì ? em có thể giải thích tại sao? có bao nhiều scope đc tạo ra ? Trong từng scope có những biến gì ? 
+```
+* Nếu thêm strict mode vào f1 và f2 thì chuyện gì xảy ra ? 
+	* f2 sẽ báo lỗi vì không đúng cú pháp
+* 1.3 Lexical Scope
+	* Xem xét đoạn code sau, kết quả in ra là gì ? em có thể giải thích tại sao? có bao nhiều scope đc tạo ra ? Trong từng scope có những biến gì ? 
 - in ra 2 4 12 
 - khi gọi foo(2) -> gán a = 2 -> b = 4. gọi bar(b*3) -> gán c = b * 3 = 12 
 - có 3 scope được tạo ra. Trong đó: 
