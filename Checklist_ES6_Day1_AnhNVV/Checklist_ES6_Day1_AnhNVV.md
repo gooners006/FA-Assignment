@@ -89,5 +89,10 @@
 			
 		* 1.3.6 Promise
 			* Compare 2 Promise call below, what do you think ? If v is null or undefined what will happend ? How you handle that ?
+				* 
+				```
+				p.then(function (v) { return v.id });
 
+				p.then(v => v.id);
+				```
 
