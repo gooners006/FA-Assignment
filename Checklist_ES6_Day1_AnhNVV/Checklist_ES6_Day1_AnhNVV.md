@@ -154,7 +154,7 @@
 			```
 			
 		* 1.4.3 What is const ? Example ?
-			* 
+			* khai báo biến không được thay đổi giá trị bằng phép gán, các biến như array hay object vẫn có thể được modify
 		* 1.4.4 Exercise: fix code below (anywhere) so the console.log will display true
 			```
 			var x = 2, fns = [];
