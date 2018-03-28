@@ -140,7 +140,34 @@
 			```
 	* 1.4 Block Scope
 		* 1.4.1 Compare let and var
+			* let cho phép khai báo một biến chỉ có giới hạn trong block, câu lệnh hoặc biểu thức
+			* var cho phép định nghĩa một biến global hoặc local
 		* 1.4.2 Closures scope, how do let work in closures, try example below
+			
+			```
+			for (let i = 0; i < 3; i++) {
+			  let btn = document.getElementById('btn' + i);
+			  btn.addEventListener('click', () {
+			    alert(i);
+			  });
+			}
+			```
+			
+		* 1.4.3 What is const ? Example ?
+			* 
+		* 1.4.4 Exercise: fix code below (anywhere) so the console.log will display true
+			```
+			var x = 2, fns = [];
+
+			(function(){
+			  var x = 5;
+
+			  for (var i=0; i<x; i++) {
+			  }
+			})();
+
+			console.log((x * 2) === fns[x*2]()); // must be true
+			```
 
 
 			
