@@ -157,12 +157,13 @@
 			* khai báo biến không được thay đổi giá trị bằng phép gán, các biến như array hay object vẫn có thể được modify
 		* 1.4.4 Exercise: fix code below (anywhere) so the console.log will display true
 			```
-			var x = 2, fns = [];
+			const x = 2, fns = [];
 
 			(function(){
-			  var x = 5;
+			  const  x = 5;
 
-			  for (var i=0; i<x; i++) {
+			  for (let i=0; i<x; i++) {
+			  fns.push(_ => i);
 			  }
 			})();
 
