@@ -83,7 +83,11 @@
 			  }
 			}
 
-			obj.method(); // ??
-			obj2.mthod();
+			obj.method(); // setTimeout được khai báo ở window -> this trỏ ra window -> undefined
+			obj2.method();// ...
 			```
 			
+		* 1.3.6 Promise
+			* Compare 2 Promise call below, what do you think ? If v is null or undefined what will happend ? How you handle that ?
+
+
