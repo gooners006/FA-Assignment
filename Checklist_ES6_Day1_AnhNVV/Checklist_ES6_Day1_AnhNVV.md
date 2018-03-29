@@ -51,7 +51,7 @@
 				  } catch (e) {}
 				}
 				const f6 = x => { return 10; }
-				const f7 = x => { y: x }// ...
+				const f7 = x => { y: x }// const f7 = x => ({ y: x })
 				```
 				
 		* 1.3.4 True or false: arrow functions are anonymous ?
@@ -59,7 +59,7 @@
 			* 
 			```
 			const myFunc = x => 4;
-			console.log(myFunc.name);
+			console.log(myFunc.name);// in ra myFunc
 			```
 			
 		* 1.3.5 this
@@ -84,7 +84,7 @@
 			}
 
 			obj.method(); // setTimeout được khai báo ở window -> this trỏ ra window -> undefined
-			obj2.method();// ...
+			obj2.method();// lexical this sẽ nhớ được scope của cha của hàm nơi nó được dùng -> trỏ đến a trong obj2 -> in ra 10
 			```
 			
 		* 1.3.6 Promise
@@ -92,16 +92,15 @@
 				 
 				```
 				p.then(function (v) { return v.id });
-
 				p.then(v => v.id);
 				```
 				br
 		1.3.7 Exercise 01: rewrite all function below with arrow functions and try to avoid curly braces {} as much as possible
 			* 
 			```
-			(function iife(){
+			(() => {
 
-				  function foo(x) {
+				  var foo = (x) => {
 				    var y = x * 2;
 
 				    return function bar(z) {
@@ -114,10 +113,10 @@
 				      else {
 					var obj = [];
 
-					setTimeout( function bam(){
+					setTimeout( () => {
 					  obj.length = 1;
 					  obj[0] = this.w;
-					}.bind( this ), 100 );
+					}, 100 );
 
 					return obj;
 				      }
@@ -131,8 +130,8 @@
 				  list1 = p.call( { w: 42 }, list1 );
 				  list2 = p( list2 );
 
-				  setTimeout( function(){
-				    console.log( list1[0] === list2.reduce( function(s,v){
+				  setTimeout( () => {
+				    console.log( list1[0] === list2.reduce( (s,v) => {
 				      return s + v;
 				    }, 0 ) );
 				  }, 200 );
@@ -151,6 +150,7 @@
 			    alert(i);
 			  });
 			}
+			// mỗi let + for sẽ tại ra một vòng for mới -> tạo ra một biến i riêng biệt cho mỗi vòng for -> sẽ nhớ được biến i khi click
 			```
 			
 		* 1.4.3 What is const ? Example ?
