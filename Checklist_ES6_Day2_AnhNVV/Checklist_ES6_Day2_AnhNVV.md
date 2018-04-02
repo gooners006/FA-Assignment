@@ -390,4 +390,184 @@
 		fn([ ]); // undefined undefined
 		```
 		* 1.7.8 Exercise: practice object destructuring, object constructuring
+		```
+		function ajax(url,cb) {
+		  // fake ajax response:
+		  cb({
+		    foo: 2,
+		    baz: [ 6, 8, 10 ],
+		    bam: {
+		      qux: 12
+		    }
+		  });
+		}
 
+		function check(data) {
+		  console.log(
+		    56 === (
+		      data.foo +
+		      data.bar +
+		      data.baz[0] + data.baz[1] + data.baz[2] +
+		      data.bam.qux +
+		      data.bam.qam
+		    )
+		  );
+		}
+
+		var defaults = {
+		  foo: 0,
+		  bar: 4,
+		  bam: {
+		    qux: 0,
+		    qam: 14
+		  }
+		};
+
+		function response(/* TODO: object destructuring */) {
+
+		  check({
+		  /* TODO: object constructuring */
+		  });
+
+		}
+
+		ajax("http://fun.tld",response);
+		```
+	* 1.8 Object Literal Extensions
+		* 1.8.1 Concise properties: consider the following code what do you think ?
+			```
+			var x = 2, y = 3;
+			var o1 = {
+			  x: x,
+			  y: y
+			}
+
+			var o2 = {
+			  x,
+			  y
+			}
+			console.log(o1); // ??
+			console.log(o2); // ??
+			// nếu thuộc tính có trùng key và value thì chỉ cần viết 1 lần
+			```
+		* 1.8.2 Concise Methods: consider the following code what do you think ?
+			```
+			var o1 = {
+			  x: function() {
+			    console.log('o1.x');
+			  },
+			  y: function() { }
+			}
+
+			o1.x();
+
+			var o2 = {
+			  x() {
+			     console.log('o2.x');
+			  },
+			  y() {}
+			}
+			o2.x();
+			// cũng có thể rút gọn khi viết phương thức giống như thuộc tính
+			```
+		* 1.8.3 ES5 Getter/Setter: consider the following code
+			```
+			var o = {
+			  _id: 10,
+			  get id() { return this._id++; },
+			  set id(v) { this._id = v; }
+			}
+
+			o.id; // 10
+			o.id = 100;
+			o.id; // 100
+			```
+	* 1.9 Template Strings
+		* 1.9.1 Template Strings: what is template strings ?
+			* là kiểu string cho phép nhúng biểu thức vào nó.
+		* 1.9.2 Consider this code below, rewrite it using ES6 template string
+			```
+			var name = 'That Duy';
+			var chaoDuy = 'Hello ' + name + '!';
+
+			console.log(chaoDuy);
+			console.log(typeof chaoDuy);
+			
+			//rewrite
+			var name = 'That Duy';
+			var chaoDuy = `Hello ${name} !`;
+
+			console.log(chaoDuy);//Hello That Duy !
+			console.log(typeof chaoDuy);//string
+			
+			```
+		* 1.9.3 Interpolated Expression: can we use function inside ${…} if yes provide an example
+			```
+			function upper(s) {
+				return s.toUpperCase();
+			}
+
+			var who = "reader";
+
+			var text =
+			`A very ${upper( "warm" )} welcome
+			to all of you ${upper( `${who}s` )}!`;
+
+			console.log( text );
+			// A very WARM welcome
+			// to all of you READERS!
+			```
+		* 1.9.4 Tag Functions: consider the code below
+			```
+			function f(strings, ...values) {
+			  console.log(strings);
+			  console.log(values);
+			}
+
+			var s = 'Fresher Academy';
+			f`Hello ${s}`; // in ra 2 mảng trong đó strings=['Hello', ""],values=['Fresher Academy'] 
+			```
+		* 1.9.5 Exercise
+			```
+			function upper(strings,...values) {
+			  // TODO
+			let [a,c,e,g]=strings;
+			let [b,d,f]=values;
+			return a+b.toUpperCase()+c+d.toUpperCase()+e+f.toUpperCase()+g;
+			}
+
+			var name = 'Nguyen Van A',
+			  account = 'anv',
+			  classname = 'Fresher Academy ES6';
+
+			console.log(
+			  upper`Hello ${name} (@${account}), welcome to the ${classname}!` ===
+			  'Hello NGUYEN VAN A (@ANV), welcome to the FRESHER ACADEMY ES6!'
+			);
+			```
+	* 1.10 Modules
+		* 1.10.1 What is module pattern ?
+			* là một design pattern, một module là 1 IIFE
+		* 1.10.2 What is ES6 import/export ?
+			* export: dùng để trích các function, object, kiểu nguyên thủy từ một module ra để chương trình sử dụng
+			* import: nhận các dữ liệu được export từ module khác để sử dụng
+			* VD: 
+			trong module: 
+			```
+			// module "my-module.js"
+				function cube(x) {
+				  return x * x * x;
+				}
+				const foo = Math.PI + Math.SQRT2;
+				var graph = {
+				    options:{
+					color:'white',
+					thickness:'2px'
+				    },
+				    draw: function(){
+					console.log('From graph draw function');
+				    }
+				}
+				export { cube, foo, graph };
+			```
+		
