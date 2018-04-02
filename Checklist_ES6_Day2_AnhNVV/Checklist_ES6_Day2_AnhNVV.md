@@ -303,20 +303,91 @@
 			```
 		* 1.6.8 Exercise: fix the following code so console.log will print true
 			```
-			function f() { }
+			function f(...arr) { 
+			arr[0].pop();
+			arr[1].shift();
+			return arr[0].concat(arr[1]);
+			}
 			function g() {
 			  var a1 = [2, 4];
 			  var a2 = [6, 8, 10, 12];
 
-			  return f();
+			  return f(a1,a2);
 			}
 
 			console.log(g().join("") === "281012"); // must print true
 			```
 	* 1.7 Destructuring
 		* 1.7.1 What is destructuring ? Example ?
+			*  là một cú pháp cho phép tách dữ liệu được lưu trữ bên trong Objects hoặc Arrays và gán chúng cho các biến riêng biệt.
+			* VD: 
+			```
+			const person = { first: 'Foo', last: 'Bar' };
+			const {first, last} = person;
 
+			console.log(first); // Foo
+			console.log(last);  // Bar
 
+			//------------------------------------------
+			// Aliases
+
+			let characters = {a: 'a', b: 'b', c: 'c'};
+			let {a: d, b: e, c: f} = characters;
+
+			console.log(d, e, f); // a b c
+			console.log(a);		// Uncaught ReferenceError: a is not defined
+			```
+		* 1.7.2 Can you use destructuring and default values together ? Provide example?
+			* VD: 
+			```
+			let arr = ['a'];
+			let [main, sub = 'b'] = arr;
 			
-				
+			console.log(main);//a
+			console.log(sub);//b
+			```
+		* 1.7.3 Dumping values: provide example that extract the 3rd element in an array and don't care about the 1st, 2nd element ? Provide example that swap 2 numbers ?
+			* extract the 3rd element in an array and don't care about the 1st, 2nd element
+			```
+			let date = [10, 03, 2016]
+			let [, , y] = date;
+			```
+			* swap 2 numbers
+			```
+			let date = [ 10, 03 ];
+			let [day , month] = date;
+			[day , month] = [month, day];
+			```
+		* 1.7.4 Nested Array Destructuring: in case we have an array like this [[1, 2], [3, 4], [5, 6]] use destructuring to extract the number 1 to variabled called a
+			* VD: 
+			```
+			let arr=[[1, 2], [3, 4], [5, 6]]
+			let [[a, b], [c, d], [e, f]]=arr
+			```
+		* 1.7.5 Object Destructuring: provide an example that use destructuring to extract property in an object ?
+			* VD: 
+			```
+			let characters = {a: 'a', b: 'b', c: 'c'};
+			let {a: d, b: e, c: f} = characters;
+
+			console.log(d, e, f); // a b c
+			```
+		* 1.7.6 Nested Object Destructuring: in case we have an object like this { nested: { a: 10 } }, provide an example that use destructuring to extract value of a in inside nested object
+			* VD:
+			```
+			let obj={ nested: { a: 10 } };
+			let {nested: {a} }=obj;
+			console.log(a);//10
+			```
+		* 1.7.7 Destructuring and Function Parameters: consider the array destructuring for parameters what will be printed out ?
+		```
+		function fn([ x, y ]) {
+		  console.log(x, y);
+		}
+
+		fn([ 1, 2 ]); // 1 2
+		fn([ 1 ]); // 1 undefined
+		fn([ ]); // undefined undefined
+		```
+		* 1.7.8 Exercise: practice object destructuring, object constructuring
 
