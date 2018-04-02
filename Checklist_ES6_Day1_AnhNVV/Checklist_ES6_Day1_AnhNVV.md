@@ -89,6 +89,7 @@
 			
 		* 1.3.6 Promise
 			* Compare 2 Promise call below, what do you think ? If v is null or undefined what will happend ? How you handle that ?
+			* nếu v null hoặc undefined thì chương trình sẽ báo lỗi. nếu dùng arrow function thì khi debug sẽ khó tìm được nơi xảy ra lỗi hơn là dùng hàm bình thường
 				 
 				```
 				p.then(function (v) { return v.id });
