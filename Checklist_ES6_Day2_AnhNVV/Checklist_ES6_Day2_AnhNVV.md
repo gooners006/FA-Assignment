@@ -613,3 +613,10 @@
 				* khi engine load xong B, nó lại tiếp tục phân tích các export. Khi thấy "import .. from "A"" thì nó đã biết được API của A từ trước rồi nên engine sẽ verify các import là chuẩn. Bây giờ engine đã biết được API của B nên nó có thể xác nhận phần "import .. from "B"" đang đợi ở A là chuẩn
 	* 1.11 Module Loaders
 		* cung cấp khả năng load các module dynamically và kiểm soát các module đã được load bằng một thanh ghi module (module registry)
+	* 1.12 Collections
+		* 1.12.1 Map: what is Map in JS ? How to iterate a Map ? How to get a value ? How to set a value ? How to know if a value is in Map ?
+			* Map: giống như object(có cặp key/value), nhưng key có thể là bất cứ giá trị gì kể cả à một object hay một map khác
+			* các cách iterate: dùng forEach hay for...of
+			* set: set(key, value). VD: map.set(a,1)
+			* get: get(key). VD: map.get(a)//1
+			* check tồn tại: has(key). VD: map.has(a)//true
