@@ -254,6 +254,32 @@
 				  return a * b;
 				}
 				```
+		* 1.6.2 Lazy expression, evaluate the following code, how many times g have been called ?
+			```
+			function g() {
+			  console.log('g');
+			}
+
+			function f(x = g()) {
+			}
+
+			f(1);
+			f();
+			f();
+			// g được gọi 2 lần, f(1) không gọi g vì x=1. Nếu gán default value bằng 1 hàm thì khi gọi hàm chứa nó sẽ thực thi luôn hàm được gán làm giá trị mặc định
+			```
+		* 1.6.3 Evaluate the following code
+			```
+			var x = 1;
+			function f(x = 2, fn = function() { return x }) {
+			  console.log(fn());
+			}
+
+			f();
+			// fn sẽ tìm biến x trong block scope của hàm f, lúc này x=2 -> x trong fn có giá trị 2 -> thực thi f sẽ in ra giá trị return của fn là 2
+			```
+		* 1.6.4 What's a variadic arguments?
+			* 
 			
 
 
