@@ -150,6 +150,8 @@
 				}
 			}
 			```
+		* 1.4.2 What is keyword extends and super, provide an example that used both keyword ?
+			* 
 			
 	* 1.5 Block Scope
 		* 1.4.1 Compare let and var
