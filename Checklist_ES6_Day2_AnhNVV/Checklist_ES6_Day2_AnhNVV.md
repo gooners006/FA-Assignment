@@ -589,14 +589,27 @@
 					// ..
 				}
 
-				export default foo;
+				export default f;
 				//cách này sẽ export giá trị của biểu thức hàm f, ko phải identifier f, nghĩa là nó nhận một biểu thức. Nếu sau này trong module ta gán f cho 1 giá trị khác thì khi import sẽ lấy giá trị ban đầu, không lấy giá trị mới
 				```
 				```
-				function foo(..) {
+				function f(..) {
 					// ..
 				}
 
-				export { foo as default };
+				export { f as default };
+				//dùng cách này thì khi thay đổi giá trị của f thì bên import cũng sẽ thay đổi giá trị theo
 				```
-		
+			* cách để import một default export:
+				```
+				import f from "f";
+
+				// or:
+				import { default as f } from "f";
+				```
+		* 1.10.4 Circular Module Dependency: A imports B, B imports A, how does this work ?
+			* Cách hoạt động:
+				* module A được load trước, đầu tiên sẽ quét file và phân tích tất cả các export để ghi các binding khả dụng để import, sau đó sẽ xử lí phần "import .. from "B"",bắt đầu đi tìm B
+				* khi engine load xong B, nó lại tiếp tục phân tích các export. Khi thấy "import .. from "A"" thì nó đã biết được API của A từ trước rồi nên engine sẽ verify các import là chuẩn. Bây giờ engine đã biết được API của B nên nó có thể xác nhận phần "import .. from "B"" đang đợi ở A là chuẩn
+	* 1.11 Module Loaders
+		* cung cấp khả năng load các module dynamically và kiểm soát các module đã được load bằng một thanh ghi module (module registry)
