@@ -279,8 +279,42 @@
 			// fn sẽ tìm biến x trong block scope của hàm f, lúc này x=2 -> x trong fn có giá trị 2 -> thực thi f sẽ in ra giá trị return của fn là 2
 			```
 		* 1.6.4 What's a variadic arguments?
-			* 
-			
+			* nó cho phép function nhận nhiều arguments, gần giống như rest parameter
+		* 1.6.5 What is arguments in a JavaScript function ?
+			* object arguments(đối số) là một biến cục bộ, gần giống với 1 array,có ở trong mọi function trừ arrow function
+		* 1.6.6 … operator can be used in 2 differents ways, see code below:
+			```
+			function f(...args) { // gather arguments
+			}
+
+			var x = [1, 2, 3];
+			var y = [4, 5];
+			var z = [0, ...x, ...y ]; // spread out
+			```
+		* 1.6.7 In which way the … operator is used in following code
+			```
+			function g(...arr) { // gather arguments
+			}
+
+			var a = [1, 2, 3];
+			var b = [4, 5, 6];
+
+			g(...a, ...b); // spread out
+			```
+		* 1.6.8 Exercise: fix the following code so console.log will print true
+			```
+			function f() { }
+			function g() {
+			  var a1 = [2, 4];
+			  var a2 = [6, 8, 10, 12];
+
+			  return f();
+			}
+
+			console.log(g().join("") === "281012"); // must print true
+			```
+	* 1.7 Destructuring
+		* 1.7.1 What is destructuring ? Example ?
 
 
 			
