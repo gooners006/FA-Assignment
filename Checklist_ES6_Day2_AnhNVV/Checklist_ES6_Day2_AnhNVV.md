@@ -186,12 +186,31 @@
 			  }
 			}
 			```
+		* 1.4.3 Consider the following code, what will be printed out?
+			```
+			class Cha {
+			  constructor() { this.id = 'a' }
+			  method() {
+			    console.log('Cha', this.id)
+			  }
+			}
+
+			class Con extends Cha {
+			  method() {
+			    super.method();
+			    console.log('Con', this.id)
+			  }
+			}
+			// in ra Cha a và Con a
+			```
+		* 1.4.4 What is static keyword ?
+			* dùng để định nghĩa một static method. Một static method được gọi trực tiếp trên class, không thể gọi trên instance của nó
 			
 	* 1.5 Block Scope
-		* 1.4.1 Compare let and var
+		* 1.5.1 Compare let and var
 			* let cho phép khai báo một biến chỉ có giới hạn trong block, câu lệnh hoặc biểu thức
 			* var cho phép định nghĩa một biến global hoặc local
-		* 1.4.2 Closures scope, how do let work in closures, try example below
+		* 1.5.2 Closures scope, how do let work in closures, try example below
 			
 			```
 			for (let i = 0; i < 3; i++) {
@@ -203,9 +222,9 @@
 			// mỗi let + for sẽ tại ra một vòng for mới -> tạo ra một biến i riêng biệt cho mỗi vòng for -> sẽ nhớ được biến i khi click
 			```
 			
-		* 1.4.3 What is const ? Example ?
+		* 1.5.3 What is const ? Example ?
 			* khai báo biến không được thay đổi giá trị bằng phép gán, các biến như array hay object vẫn có thể được modify
-		* 1.4.4 Exercise: fix code below (anywhere) so the console.log will display true
+		* 1.5.4 Exercise: fix code below (anywhere) so the console.log will display true
 			```
 			const x = 2, fns = [];
 
@@ -219,6 +238,23 @@
 
 			console.log((x * 2) === fns[x*2]()); // must be true
 			```
+	* 1.6 Default Values and the Gather/Spread Operator
+		* 1.6.1 Default Values: how to define a functon with default value in ES5 ? And in ES6 ?
+			* Trong ES5: 
+				```
+				function multiply(a, b) {
+				  b = (typeof b !== 'undefined') ?  b : 1;
+				  return a * b;
+				}
+
+				```
+			* Trong ES6: 
+				```
+				function multiply(a, b = 1) {
+				  return a * b;
+				}
+				```
+			
 
 
 			
