@@ -570,4 +570,33 @@
 				}
 				export { cube, foo, graph };
 			```
+			trong chương trình: 
+			```
+			import { cube, foo, graph } from 'my-module';
+			graph.options = {
+			    color:'blue',
+			    thickness:'3px'
+			}; 
+			graph.draw();
+			console.log(cube(3)); // 27
+			console.log(foo);    // 4.555806215962888
+			```
+		* 1.10.3 What is export default ? How to import a exported default function ?
+			* export default là một cách viết 1 module chỉ có 1 export, nếu dùng named export thì sẽ có nhiều export
+			* có 2 cách viết default export:
+				```
+				function f(..) {
+					// ..
+				}
+
+				export default foo;
+				//cách này sẽ export giá trị của biểu thức hàm f, ko phải identifier f, nghĩa là nó nhận một biểu thức. Nếu sau này trong module ta gán f cho 1 giá trị khác thì khi import sẽ lấy giá trị ban đầu, không lấy giá trị mới
+				```
+				```
+				function foo(..) {
+					// ..
+				}
+
+				export { foo as default };
+				```
 		
