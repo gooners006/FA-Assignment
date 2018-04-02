@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<!-- 2018-03-29 Thu 17:07 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Duong Tran">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> ES 6</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Reference:</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> ES6: <a href="http://blog.thefirehoseproject.com/posts/12-reasons-es6-future-javascript-web-development/">http://blog.thefirehoseproject.com/posts/12-reasons-es6-future-javascript-web-development/</a></h4>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> ES6 Features</h4>
+<div class="outline-text-4" id="text-1-1-2">
+</div><ol class="org-ol"><li><a id="sec-1-1-2-1" name="sec-1-1-2-1"></a><a href="https://github.com/lukehoban/">https://github.com/lukehoban/</a><br ></li>
+<li><a id="sec-1-1-2-2" name="sec-1-1-2-2"></a><a href="http://es6-features.org/#Constants">http://es6-features.org/#Constants</a><br ></li></ol>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> JS Engines: <a href="https://developer.telerik.com/featured/a-guide-to-javascript-engines-for-idiots/">https://developer.telerik.com/featured/a-guide-to-javascript-engines-for-idiots/</a></h4>
+</div>
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> Transpilers: <a href="https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them">https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them</a></h4>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> History</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> What's is ECMAScript ?</h4>
+</div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> What is JavaScript Engine ? Can you name a few JavaScript Engine used in some popular Browsers such as Chrome, Firefox, IE</h4>
+</div>
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> What is Future JavaScript ?</h4>
+</div>
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> What is problem you have if you want to use Future JavaScript in Present Browsers?</h4>
+</div>
+<div id="outline-container-sec-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> What is transpiler ?</h4>
+</div>
+<div id="outline-container-sec-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> What is Babel ? Try Babel online here: <a href="https://babeljs.io/repl/">https://babeljs.io/repl/</a></h4>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Arrow Function</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> Arrow Function syntax ?</h4>
+</div>
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> Compare arrow function syntax to ES5 function syntax ?</h4>
+</div>
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> Arrow function variations, try them in Babel Repl, fix error if any</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f1</span> = <span style="color: #4f97d7;">()</span> =&gt; <span style="color: #a45bad;">10</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f2</span> = _ =&gt; <span style="color: #a45bad;">3</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f3</span> = <span style="color: #4f97d7;">(</span>...x<span style="color: #4f97d7;">)</span> =&gt; <span style="color: #a45bad;">3</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f4</span> = <span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span> =&gt; <span style="color: #a45bad;">3</span>;
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f5</span> = x =&gt; <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">try</span> <span style="color: #bc6ec5;">{</span>
+    <span style="color: #a45bad;">1</span>;
+  <span style="color: #bc6ec5;">}</span> <span style="color: #4f97d7; font-weight: bold;">catch</span> <span style="color: #bc6ec5;">(</span>e<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{}</span>
+<span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f6</span> = x =&gt; <span style="color: #4f97d7;">{</span> <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">10</span>; <span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">f7</span> = x =&gt; <span style="color: #4f97d7;">{</span> y: x <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> True or false: arrow functions are anonymous ?</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #7590db;">myFunc</span> = x =&gt; <span style="color: #a45bad;">4</span>;
+console.log<span style="color: #4f97d7;">(</span>myFunc.name<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5"><span class="section-number-4">1.3.5</span> Disadvantages: lost reference outside callback, hard to debug in stack strace</h4>
+</div>
+<div id="outline-container-sec-1-3-6" class="outline-4">
+<h4 id="sec-1-3-6"><span class="section-number-4">1.3.6</span> this</h4>
+<div class="outline-text-4" id="text-1-3-6">
+</div><ol class="org-ol"><li><a id="sec-1-3-6-1" name="sec-1-3-6-1"></a>Evaluate the code below, can you explain what happens ?<br ><div class="outline-text-5" id="text-1-3-6-1">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">obj</span> = <span style="color: #4f97d7;">{</span>
+  a: <span style="color: #a45bad;">10</span>,
+  <span style="color: #bc6ec5; font-weight: bold;">method</span>: <span style="color: #4f97d7; font-weight: bold;">function</span> method<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    setTimeout<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #67b11d;">()</span> <span style="color: #67b11d;">{</span>
+        console.log<span style="color: #b1951d;">(</span><span style="color: #a45bad;">this</span>.a<span style="color: #b1951d;">)</span>;
+    <span style="color: #67b11d;">}</span>, <span style="color: #a45bad;">200</span><span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">obj2</span> = <span style="color: #4f97d7;">{</span>
+  a: <span style="color: #a45bad;">10</span>,
+  <span style="color: #bc6ec5; font-weight: bold;">method</span>: <span style="color: #4f97d7; font-weight: bold;">function</span> method<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    setTimeout<span style="color: #2d9574;">(</span><span style="color: #67b11d;">()</span> =&gt; <span style="color: #67b11d;">{</span>
+        console.log<span style="color: #b1951d;">(</span><span style="color: #a45bad;">this</span>.a<span style="color: #b1951d;">)</span>;
+    <span style="color: #67b11d;">}</span>, <span style="color: #a45bad;">200</span><span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+obj.method<span style="color: #4f97d7;">()</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+obj2.mthod<span style="color: #4f97d7;">()</span>;
+</pre>
+</div>
+</div>
+</li></ol>
+</div>
+
+<div id="outline-container-sec-1-3-7" class="outline-4">
+<h4 id="sec-1-3-7"><span class="section-number-4">1.3.7</span> Promise</h4>
+<div class="outline-text-4" id="text-1-3-7">
+</div><ol class="org-ol"><li><a id="sec-1-3-7-1" name="sec-1-3-7-1"></a>Compare 2 Promise call below, what do you think ? If v is null or undefined what will happend ? How you handle that ?<br ><div class="outline-text-5" id="text-1-3-7-1">
+<div class="org-src-container">
+
+<pre class="src src-js">p.then<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5;">(</span><span style="color: #7590db;">v</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span> <span style="color: #4f97d7; font-weight: bold;">return</span> v.id <span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>;
+
+p.then<span style="color: #4f97d7;">(</span>v =&gt; v.id<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</li></ol>
+</div>
+<div id="outline-container-sec-1-3-8" class="outline-4">
+<h4 id="sec-1-3-8"><span class="section-number-4">1.3.8</span> Exercise 01: rewrite all function below with arrow functions and try to avoid curly braces <b>{}</b> as much as possible</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span> iife<span style="color: #bc6ec5;">(){</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">foo</span><span style="color: #2d9574;">(</span><span style="color: #7590db;">x</span><span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">y</span> = x * <span style="color: #a45bad;">2</span>;
+
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">function</span> bar<span style="color: #67b11d;">(</span><span style="color: #7590db;">z</span><span style="color: #67b11d;">)</span> <span style="color: #67b11d;">{</span>
+      <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #b1951d;">(</span>z.length &gt; <span style="color: #a45bad;">3</span><span style="color: #b1951d;">)</span> <span style="color: #b1951d;">{</span>
+        <span style="color: #4f97d7; font-weight: bold;">return</span> z.map<span style="color: #4f97d7;">(</span> <span style="color: #4f97d7; font-weight: bold;">function</span> baz<span style="color: #bc6ec5;">(</span><span style="color: #7590db;">v</span><span style="color: #bc6ec5;">){</span>
+          <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>v &gt; <span style="color: #a45bad;">3</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span> v + y;
+          <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">return</span> baz<span style="color: #2d9574;">(</span> v * <span style="color: #a45bad;">4</span> <span style="color: #2d9574;">)</span>;
+        <span style="color: #bc6ec5;">}</span> <span style="color: #4f97d7;">)</span>;
+      <span style="color: #b1951d;">}</span>
+      <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #b1951d;">{</span>
+        <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">obj</span> = <span style="color: #4f97d7;">[]</span>;
+
+        setTimeout<span style="color: #4f97d7;">(</span> <span style="color: #4f97d7; font-weight: bold;">function</span> bam<span style="color: #bc6ec5;">(){</span>
+          obj.length = <span style="color: #a45bad;">1</span>;
+          obj<span style="color: #2d9574;">[</span><span style="color: #a45bad;">0</span><span style="color: #2d9574;">]</span> = <span style="color: #a45bad;">this</span>.w;
+        <span style="color: #bc6ec5;">}</span>.bind<span style="color: #bc6ec5;">(</span> <span style="color: #a45bad;">this</span> <span style="color: #bc6ec5;">)</span>, <span style="color: #a45bad;">100</span> <span style="color: #4f97d7;">)</span>;
+
+        <span style="color: #4f97d7; font-weight: bold;">return</span> obj;
+      <span style="color: #b1951d;">}</span>
+    <span style="color: #67b11d;">}</span>;
+  <span style="color: #2d9574;">}</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">p</span> = foo<span style="color: #2d9574;">(</span> <span style="color: #a45bad;">2</span> <span style="color: #2d9574;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">list1</span> = <span style="color: #2d9574;">[</span><span style="color: #a45bad;">1</span>,<span style="color: #a45bad;">3</span>,<span style="color: #a45bad;">4</span><span style="color: #2d9574;">]</span>;
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">list2</span> = list1.concat<span style="color: #2d9574;">(</span> <span style="color: #a45bad;">6</span> <span style="color: #2d9574;">)</span>;
+
+  list1 = p.call<span style="color: #2d9574;">(</span> <span style="color: #67b11d;">{</span> w: <span style="color: #a45bad;">42</span> <span style="color: #67b11d;">}</span>, list1 <span style="color: #2d9574;">)</span>;
+  list2 = p<span style="color: #2d9574;">(</span> list2 <span style="color: #2d9574;">)</span>;
+
+  setTimeout<span style="color: #2d9574;">(</span> <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #67b11d;">(){</span>
+    console.log<span style="color: #b1951d;">(</span> list1<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span> === list2.reduce<span style="color: #4f97d7;">(</span> <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">(</span><span style="color: #7590db;">s</span>,<span style="color: #7590db;">v</span><span style="color: #bc6ec5;">){</span>
+      <span style="color: #4f97d7; font-weight: bold;">return</span> s + v;
+    <span style="color: #bc6ec5;">}</span>, <span style="color: #a45bad;">0</span> <span style="color: #4f97d7;">)</span> <span style="color: #b1951d;">)</span>;
+  <span style="color: #67b11d;">}</span>, <span style="color: #a45bad;">200</span> <span style="color: #2d9574;">)</span>;
+<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)()</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Classes</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> Provide an example to create a new classed named Person which have 2 fields: <b>id</b>, <b>name</b> and 1 method: <b>sayHello</b> which print hello to the console</h4>
+</div>
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> What is keyword <b>extends</b> and <b>super</b>, provide an example that used both keyword ?</h4>
+</div>
+<div id="outline-container-sec-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> Consider the following code, what will be printed out?</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">class</span> Cha <span style="color: #4f97d7;">{</span>
+  constructor<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span> <span style="color: #a45bad;">this</span>.id = <span style="color: #2d9574;">'a'</span> <span style="color: #bc6ec5;">}</span>
+  method<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    console.log<span style="color: #2d9574;">(</span><span style="color: #2d9574;">'Cha'</span>, <span style="color: #a45bad;">this</span>.id<span style="color: #2d9574;">)</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">class</span> Con <span style="color: #4f97d7; font-weight: bold;">extends</span> Cha <span style="color: #4f97d7;">{</span>
+  method<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">super</span>.method<span style="color: #2d9574;">()</span>;
+    console.log<span style="color: #2d9574;">(</span><span style="color: #2d9574;">'Con'</span>, <span style="color: #a45bad;">this</span>.id<span style="color: #2d9574;">)</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-4-4" class="outline-4">
+<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> What is static keyword ?</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Block Scope: let + const</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> Compare let and var</h4>
+</div>
+<div id="outline-container-sec-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> Closures scope, how do let work in closures, try example below</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt; <span style="color: #a45bad;">3</span>; i++<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">btn</span> = document.getElementById<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'btn'</span> + i<span style="color: #bc6ec5;">)</span>;
+  btn.addEventListener<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'click'</span>, <span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+    alert<span style="color: #67b11d;">(</span>i<span style="color: #67b11d;">)</span>;
+  <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> What is const ? Example ?</h4>
+</div>
+<div id="outline-container-sec-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4"><span class="section-number-4">1.5.4</span> Exercise: fix code below (anywhere) so the console.log will display true</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">x</span> = <span style="color: #a45bad;">2</span>, <span style="color: #7590db;">fns</span> = <span style="color: #4f97d7;">[]</span>;
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">(){</span>
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">x</span> = <span style="color: #a45bad;">5</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">i</span>=<span style="color: #a45bad;">0</span>; i&lt;x; i++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+  <span style="color: #2d9574;">}</span>
+<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)()</span>;
+
+console.log<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>x * <span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">)</span> === fns<span style="color: #bc6ec5;">[</span>x*<span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">]()</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">must be true</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Default Values and the Gather/Spread Operator</h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> Default Values: how to define a functon with default value in ES6 ? And in ES6 ?</h4>
+</div>
+<div id="outline-container-sec-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> Lazy expression, evaluate the following code, how many times g have been called ?</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">g</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'g'</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">x</span> = <span style="color: #7590db;">g</span><span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7;">}</span>
+
+f<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>;
+f<span style="color: #4f97d7;">()</span>;
+f<span style="color: #4f97d7;">()</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> Evaluate the following code</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">x</span> = <span style="color: #a45bad;">1</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">x</span> = <span style="color: #a45bad;">2</span>, <span style="color: #7590db;">fn</span> = <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span> <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #7590db;">x</span> <span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>fn<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+f<span style="color: #4f97d7;">()</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6-4" class="outline-4">
+<h4 id="sec-1-6-4"><span class="section-number-4">1.6.4</span> What's a variadic arguments?</h4>
+</div>
+<div id="outline-container-sec-1-6-5" class="outline-4">
+<h4 id="sec-1-6-5"><span class="section-number-4">1.6.5</span> What is <b>arguments</b> in a JavaScript function ?</h4>
+</div>
+<div id="outline-container-sec-1-6-6" class="outline-4">
+<h4 id="sec-1-6-6"><span class="section-number-4">1.6.6</span> <b>&#x2026;</b> operator can be used in 2 differents ways, see code below:</h4>
+<div class="outline-text-4" id="text-1-6-6">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">(</span>...args<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">gather arguments</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">x</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">3</span><span style="color: #4f97d7;">]</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">y</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">5</span><span style="color: #4f97d7;">]</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">z</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span>, ...x, ...y <span style="color: #4f97d7;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">spread out</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6-7" class="outline-4">
+<h4 id="sec-1-6-7"><span class="section-number-4">1.6.7</span> In which way the <b>&#x2026;</b> operator is used in following code</h4>
+<div class="outline-text-4" id="text-1-6-7">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">g</span><span style="color: #4f97d7;">(</span>...arr<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">3</span><span style="color: #4f97d7;">]</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">b</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span><span style="color: #4f97d7;">]</span>;
+
+g<span style="color: #4f97d7;">(</span>...a, ...b<span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">???</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-6-8" class="outline-4">
+<h4 id="sec-1-6-8"><span class="section-number-4">1.6.8</span> Exercise: fix the following code so console.log will print <b>true</b></h4>
+<div class="outline-text-4" id="text-1-6-8">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span> <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">g</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a1</span> = <span style="color: #bc6ec5;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">4</span><span style="color: #bc6ec5;">]</span>;
+  <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">a2</span> = <span style="color: #bc6ec5;">[</span><span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">10</span>, <span style="color: #a45bad;">12</span><span style="color: #bc6ec5;">]</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">return</span> f<span style="color: #bc6ec5;">()</span>;
+<span style="color: #4f97d7;">}</span>
+
+console.log<span style="color: #4f97d7;">(</span>g<span style="color: #bc6ec5;">()</span>.join<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">""</span><span style="color: #bc6ec5;">)</span> === <span style="color: #2d9574;">"281012"</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">must print true</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Destructuring</h3>
+<div class="outline-text-3" id="text-1-7">
+</div><div id="outline-container-sec-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1"><span class="section-number-4">1.7.1</span> What is destructuring ? Example ?</h4>
+</div>
+<div id="outline-container-sec-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2"><span class="section-number-4">1.7.2</span> Can you use destructuring and default values together ? Provide example?</h4>
+</div>
+<div id="outline-container-sec-1-7-3" class="outline-4">
+<h4 id="sec-1-7-3"><span class="section-number-4">1.7.3</span> Dumping values: provide example that extract the 3rd element in an array and don't care about the 1st, 2nd element ? Provide example that swap 2 numbers ?</h4>
+</div>
+<div id="outline-container-sec-1-7-4" class="outline-4">
+<h4 id="sec-1-7-4"><span class="section-number-4">1.7.4</span> Nested Array Destructuring: in case we have an array like this [[1, 2], [3, 4], [5, 6]] use destructuring to extract the number 1 to variabled called <b>a</b></h4>
+</div>
+<div id="outline-container-sec-1-7-5" class="outline-4">
+<h4 id="sec-1-7-5"><span class="section-number-4">1.7.5</span> Object Destructuring: provide an example that use destructuring to extract property in an object ?</h4>
+</div>
+<div id="outline-container-sec-1-7-6" class="outline-4">
+<h4 id="sec-1-7-6"><span class="section-number-4">1.7.6</span> Nested Object Destructuring: in case we have an object like this { nested: { a: 10 } }, provide an example that use destructuring to extract value of <b>a</b> in inside nested object</h4>
+</div>
+<div id="outline-container-sec-1-7-7" class="outline-4">
+<h4 id="sec-1-7-7"><span class="section-number-4">1.7.7</span> Destructuring and Function Parameters: consider the array destructuring for parameters what will be printed out ?</h4>
+<div class="outline-text-4" id="text-1-7-7">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">fn</span><span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">[</span> x, y <span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>x, y<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+fn<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">[</span> <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span> <span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+fn<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">[</span> <span style="color: #a45bad;">1</span> <span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+fn<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">[</span> <span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-7-8" class="outline-4">
+<h4 id="sec-1-7-8"><span class="section-number-4">1.7.8</span> Exercise: practice object destructuring, object constructuring</h4>
+<div class="outline-text-4" id="text-1-7-8">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">ajax</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">url</span>,<span style="color: #7590db;">cb</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">fake ajax response:</span>
+  cb<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">{</span>
+    foo: <span style="color: #a45bad;">2</span>,
+    baz: <span style="color: #67b11d;">[</span> <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">10</span> <span style="color: #67b11d;">]</span>,
+    bam: <span style="color: #67b11d;">{</span>
+      qux: <span style="color: #a45bad;">12</span>
+    <span style="color: #67b11d;">}</span>
+  <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">check</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">data</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>
+    <span style="color: #a45bad;">56</span> === <span style="color: #2d9574;">(</span>
+      data.foo +
+      data.bar +
+      data.baz<span style="color: #67b11d;">[</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">]</span> + data.baz<span style="color: #67b11d;">[</span><span style="color: #a45bad;">1</span><span style="color: #67b11d;">]</span> + data.baz<span style="color: #67b11d;">[</span><span style="color: #a45bad;">2</span><span style="color: #67b11d;">]</span> +
+      data.bam.qux +
+      data.bam.qam
+    <span style="color: #2d9574;">)</span>
+  <span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">defaults</span> = <span style="color: #4f97d7;">{</span>
+  foo: <span style="color: #a45bad;">0</span>,
+  bar: <span style="color: #a45bad;">4</span>,
+  bam: <span style="color: #bc6ec5;">{</span>
+    qux: <span style="color: #a45bad;">0</span>,
+    qam: <span style="color: #a45bad;">14</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">response</span><span style="color: #4f97d7;">(</span><span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #cc9393;">TODO</span><span style="color: #2aa1ae; background-color: #292e34;">: object destructuring */</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+
+  check<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #cc9393;">TODO</span><span style="color: #2aa1ae; background-color: #292e34;">: object constructuring */</span>
+  <span style="color: #2d9574;">}</span><span style="color: #bc6ec5;">)</span>;
+
+<span style="color: #4f97d7;">}</span>
+
+ajax<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"http://fun.tld"</span>,response<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Object Literal Extensions</h3>
+<div class="outline-text-3" id="text-1-8">
+</div><div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1"><span class="section-number-4">1.8.1</span> Concise properties: consider the following code what do you think ?</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">x</span> = <span style="color: #a45bad;">2</span>, <span style="color: #7590db;">y</span> = <span style="color: #a45bad;">3</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o1</span> = <span style="color: #4f97d7;">{</span>
+  x: x,
+  y: y
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o2</span> = <span style="color: #4f97d7;">{</span>
+  x,
+  y
+<span style="color: #4f97d7;">}</span>
+console.log<span style="color: #4f97d7;">(</span>o1<span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+console.log<span style="color: #4f97d7;">(</span>o2<span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-8-2" class="outline-4">
+<h4 id="sec-1-8-2"><span class="section-number-4">1.8.2</span> Concise Methods: consider the following code what do you think ?</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o1</span> = <span style="color: #4f97d7;">{</span>
+  <span style="color: #bc6ec5; font-weight: bold;">x</span>: <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    console.log<span style="color: #2d9574;">(</span><span style="color: #2d9574;">'o1.x'</span><span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>,
+  <span style="color: #bc6ec5; font-weight: bold;">y</span>: <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span> <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+o1.x<span style="color: #4f97d7;">()</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o2</span> = <span style="color: #4f97d7;">{</span>
+  x<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+     console.log<span style="color: #2d9574;">(</span><span style="color: #2d9574;">'o2.x'</span><span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>,
+  y<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{}</span>
+<span style="color: #4f97d7;">}</span>
+o2.x<span style="color: #4f97d7;">()</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-8-3" class="outline-4">
+<h4 id="sec-1-8-3"><span class="section-number-4">1.8.3</span> ES5 Getter/Setter: consider the following code</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">o</span> = <span style="color: #4f97d7;">{</span>
+  _id: <span style="color: #a45bad;">10</span>,
+  get id<span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span> <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">this</span>._id++; <span style="color: #bc6ec5;">}</span>,
+  set id<span style="color: #bc6ec5;">(</span>v<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span> <span style="color: #a45bad;">this</span>._id = v; <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+o.id; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+o.id = <span style="color: #a45bad;">100</span>;
+o.id; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Template Strings</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-sec-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1"><span class="section-number-4">1.9.1</span> Template Strings: what is template strings ?</h4>
+</div>
+<div id="outline-container-sec-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2"><span class="section-number-4">1.9.2</span> Consider this code below, rewrite it using ES6 template string</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">name</span> = <span style="color: #2d9574;">'That Duy'</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">chaoDuy</span> = <span style="color: #2d9574;">'Hello '</span> + name + <span style="color: #2d9574;">'!'</span>;
+
+console.log<span style="color: #4f97d7;">(</span>chaoDuy<span style="color: #4f97d7;">)</span>;
+console.log<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">typeof</span> chaoDuy<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-3" class="outline-4">
+<h4 id="sec-1-9-3"><span class="section-number-4">1.9.3</span> Interpolated Expression: can we use function inside <b>${&#x2026;}</b> if yes provide an example</h4>
+</div>
+<div id="outline-container-sec-1-9-4" class="outline-4">
+<h4 id="sec-1-9-4"><span class="section-number-4">1.9.4</span> Tag Functions: consider the code below</h4>
+<div class="outline-text-4" id="text-1-9-4">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">f</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">strings</span>, ...<span style="color: #7590db;">values</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>strings<span style="color: #bc6ec5;">)</span>;
+  console.log<span style="color: #bc6ec5;">(</span>values<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">s</span> = <span style="color: #2d9574;">'Fresher Academy'</span>;
+f<span style="color: #2d9574;">`Hello ${s}`</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">??</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-5" class="outline-4">
+<h4 id="sec-1-9-5"><span class="section-number-4">1.9.5</span> Exercise</h4>
+<div class="outline-text-4" id="text-1-9-5">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">upper</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">strings</span>,...<span style="color: #7590db;">values</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #cc9393;">TODO</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">name</span> = <span style="color: #2d9574;">'Nguyen Van A'</span>,
+  account = <span style="color: #2d9574;">'anv'</span>,
+  classname = <span style="color: #2d9574;">'Fresher Academ ES6'</span>;
+
+console.log<span style="color: #4f97d7;">(</span>
+  <span style="color: #2d9574;">`Hello ____ (@____), welcome to the ____!`</span> ===
+  <span style="color: #2d9574;">'Hello NGUYEN VAN A (@ANV), welcome to the FRESHER ACADEMY ES6!'</span>
+<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Modules</h3>
+<div class="outline-text-3" id="text-1-10">
+</div><div id="outline-container-sec-1-10-1" class="outline-4">
+<h4 id="sec-1-10-1"><span class="section-number-4">1.10.1</span> What is module pattern ?</h4>
+</div>
+<div id="outline-container-sec-1-10-2" class="outline-4">
+<h4 id="sec-1-10-2"><span class="section-number-4">1.10.2</span> What is ES6 import/export ?</h4>
+</div>
+<div id="outline-container-sec-1-10-3" class="outline-4">
+<h4 id="sec-1-10-3"><span class="section-number-4">1.10.3</span> What is export default ? How to import a exported default function ?</h4>
+</div>
+<div id="outline-container-sec-1-10-4" class="outline-4">
+<h4 id="sec-1-10-4"><span class="section-number-4">1.10.4</span> Circular Module Dependency: A imports B, B imports A, how does this work ?</h4>
+</div>
+</div>
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Module Loaders</h3>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Collections</h3>
+<div class="outline-text-3" id="text-1-12">
+</div><div id="outline-container-sec-1-12-1" class="outline-4">
+<h4 id="sec-1-12-1"><span class="section-number-4">1.12.1</span> Map: what is Map in JS ? How to iterate a Map ? How to get a value ? How to set a value ? How to know if a value is in Map ?</h4>
+</div>
+<div id="outline-container-sec-1-12-2" class="outline-4">
+<h4 id="sec-1-12-2"><span class="section-number-4">1.12.2</span> Set: what is Set in JS ? How to iterate a Set ? How to get a value ? How to set a value ? How to know if a value is in Set ?</h4>
+</div>
+<div id="outline-container-sec-1-12-3" class="outline-4">
+<h4 id="sec-1-12-3"><span class="section-number-4">1.12.3</span> Weakmap same question like Map ? What is the difference between Map vs Weakmap</h4>
+</div>
+<div id="outline-container-sec-1-12-4" class="outline-4">
+<h4 id="sec-1-12-4"><span class="section-number-4">1.12.4</span> Weakset same question like Set ? What is the difference between Set vs WeakSet</h4>
+</div>
+</div>
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Proxies</h3>
+</div>
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Promises</h3>
+</div>
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15"><span class="section-number-3">1.15</span> Math + number + string + array + objects</h3>
+<div class="outline-text-3" id="text-1-15">
+</div><div id="outline-container-sec-1-15-1" class="outline-4">
+<h4 id="sec-1-15-1"><span class="section-number-4">1.15.1</span> Array add <b>of(..)</b>, <b>from(..)*</b> and <b>fill(..)</b>. Provide example using them</h4>
+</div>
+<div id="outline-container-sec-1-15-2" class="outline-4">
+<h4 id="sec-1-15-2"><span class="section-number-4">1.15.2</span> Provide example using <b>Object.is</b> and <b>Object.assign</b></h4>
+</div>
+<div id="outline-container-sec-1-15-3" class="outline-4">
+<h4 id="sec-1-15-3"><span class="section-number-4">1.15.3</span> Provide example using <b>String.repeat</b> and <b>String.includes</b></h4>
+</div>
+</div>
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16"><span class="section-number-3">1.16</span> Binary and Octal literals</h3>
+</div>
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17"><span class="section-number-3">1.17</span> Reflect Api</h3>
+</div>
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18"><span class="section-number-3">1.18</span> Tail calls</h3>
+</div>
+<div id="outline-container-sec-1-19" class="outline-3">
+<h3 id="sec-1-19"><span class="section-number-3">1.19</span> Symbols, Iterators, and Generators</h3>
+<div class="outline-text-3" id="text-1-19">
+</div><div id="outline-container-sec-1-19-1" class="outline-4">
+<h4 id="sec-1-19-1"><span class="section-number-4">1.19.1</span> Symbols: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol</a></h4>
+<div class="outline-text-4" id="text-1-19-1">
+</div><ol class="org-ol"><li><a id="sec-1-19-1-1" name="sec-1-19-1-1"></a>what is symbols ? provide same<br ></li>
+<li><a id="sec-1-19-1-2" name="sec-1-19-1-2"></a>Well-known Symbols?<br ></li></ol>
+</div>
+<div id="outline-container-sec-1-19-2" class="outline-4">
+<h4 id="sec-1-19-2"><span class="section-number-4">1.19.2</span> Iterators: study about Iterators (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators</a>)</h4>
+<div class="outline-text-4" id="text-1-19-2">
+</div><ol class="org-ol"><li><a id="sec-1-19-2-1" name="sec-1-19-2-1"></a>What is Iterators ?<br ></li>
+<li><a id="sec-1-19-2-2" name="sec-1-19-2-2"></a>What is the Interface of Iterators ?<br ></li>
+<li><a id="sec-1-19-2-3" name="sec-1-19-2-3"></a>Provide an example using Iterator ?<br ></li>
+<li><a id="sec-1-19-2-4" name="sec-1-19-2-4"></a>Creating a Custom Iterators<br ></li></ol>
+</div>
+<div id="outline-container-sec-1-19-3" class="outline-4">
+<h4 id="sec-1-19-3"><span class="section-number-4">1.19.3</span> Generators</h4>
+<div class="outline-text-4" id="text-1-19-3">
+</div><ol class="org-ol"><li><a id="sec-1-19-3-1" name="sec-1-19-3-1"></a>What is Generators ? What is syntax to create a generator ? How you execute a generator ? How we handle errors in generator ?<br ></li>
+<li><a id="sec-1-19-3-2" name="sec-1-19-3-2"></a>Where do you think we should use generator ?<br ></li></ol>
+</div>
+<div id="outline-container-sec-1-19-4" class="outline-4">
+<h4 id="sec-1-19-4"><span class="section-number-4">1.19.4</span> Exercise</h4>
+<div class="outline-text-4" id="text-1-19-4">
+<div class="org-src-container">
+
+<pre class="src src-js"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">numbers</span> = <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">..</span>
+<span style="color: #4f97d7;">}</span>;
+
+<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">should print 0..100 by 1s</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">num</span> of numbers<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>num<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">should print 6..30 by 4s</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">num</span> of <span style="color: #2aa1ae; background-color: #292e34;">/*</span><span style="color: #2aa1ae; background-color: #292e34;">..*/</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  console.log<span style="color: #bc6ec5;">(</span>num<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. ES 6</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. Reference:</a></li>
+<li><a href="#sec-1-2">1.2. History</a></li>
+<li><a href="#sec-1-3">1.3. Arrow Function</a></li>
+<li><a href="#sec-1-4">1.4. Classes</a></li>
+<li><a href="#sec-1-5">1.5. Block Scope: let + const</a></li>
+<li><a href="#sec-1-6">1.6. Default Values and the Gather/Spread Operator</a></li>
+<li><a href="#sec-1-7">1.7. Destructuring</a></li>
+<li><a href="#sec-1-8">1.8. Object Literal Extensions</a></li>
+<li><a href="#sec-1-9">1.9. Template Strings</a></li>
+<li><a href="#sec-1-10">1.10. Modules</a></li>
+<li><a href="#sec-1-11">1.11. Module Loaders</a></li>
+<li><a href="#sec-1-12">1.12. Collections</a></li>
+<li><a href="#sec-1-13">1.13. Proxies</a></li>
+<li><a href="#sec-1-14">1.14. Promises</a></li>
+<li><a href="#sec-1-15">1.15. Math + number + string + array + objects</a></li>
+<li><a href="#sec-1-16">1.16. Binary and Octal literals</a></li>
+<li><a href="#sec-1-17">1.17. Reflect Api</a></li>
+<li><a href="#sec-1-18">1.18. Tail calls</a></li>
+<li><a href="#sec-1-19">1.19. Symbols, Iterators, and Generators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Duong Tran</p>
+<p class="date">Created: 2018-03-29 Thu 17:07</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org-mode</a> 9.1.7)</p>
+</div>
+</footer>
+</body>
+</html>
