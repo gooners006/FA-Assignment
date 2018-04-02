@@ -151,7 +151,41 @@
 			}
 			```
 		* 1.4.2 What is keyword extends and super, provide an example that used both keyword ?
-			* 
+			* extends: dùng khi khai báo class để tạo một class là con của class khác
+			* super: dùng để truy cập và gọi vào hàm của object cha
+			* VD: 
+			```
+			class Rectangle {
+			  constructor(height, width) {
+			    this.name = 'Rectangle';
+			    this.height = height;
+			    this.width = width;
+			  }
+			  sayName() {
+			    console.log('Hi, I am a ', this.name + '.');
+			  }
+			  get area() {
+			    return this.height * this.width;
+			  }
+			  set area(value) {
+			    this.height = this.width = Math.sqrt(value);
+			  }
+			}
+
+			class Square extends Rectangle {
+			  constructor(length) {
+			    this.height; // ReferenceError, super needs to be called first!
+
+			    // Here, it calls the parent class' constructor with lengths
+			    // provided for the Rectangle's width and height
+			    super(length, length);
+
+			    // Note: In derived classes, super() must be called before you
+			    // can use 'this'. Leaving this out will cause a reference error.
+			    this.name = 'Square';
+			  }
+			}
+			```
 			
 	* 1.5 Block Scope
 		* 1.4.1 Compare let and var
