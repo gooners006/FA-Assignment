@@ -152,7 +152,7 @@
 			```
 		* 1.4.2 What is keyword extends and super, provide an example that used both keyword ?
 			* extends: dùng khi khai báo class để tạo một class là con của class khác
-			* super: dùng để truy cập và gọi vào hàm của object cha
+			* super: dùng để truy cập và gọi vào hàm của cha của 1 object
 			* VD: 
 			```
 			class Rectangle {
@@ -423,10 +423,16 @@
 		  }
 		};
 
-		function response(/* TODO: object destructuring */) {
+		function response({foo:x, baz:[...a], bam:{qux:q, qam=0}}) {
 
 		  check({
-		  /* TODO: object constructuring */
+		  foo:defaults.foo+x,
+			bar:defaults.bar,
+			baz:[...a],
+			bam: {
+				qux: q+defaults.bam.qux,
+				qam:defaults.bam.qam+qam
+				}
 		  });
 
 		}
@@ -663,3 +669,4 @@
 			* get: phải convert set về 1 array sau đó mới lấy được ra
 			* set: add(value)
 			* check tồn tại: has(value)
+		* Weakmap same question like Map ? What is the difference between Map vs Weakmap
