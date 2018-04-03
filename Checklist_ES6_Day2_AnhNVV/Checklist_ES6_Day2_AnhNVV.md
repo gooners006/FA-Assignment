@@ -616,7 +616,50 @@
 	* 1.12 Collections
 		* 1.12.1 Map: what is Map in JS ? How to iterate a Map ? How to get a value ? How to set a value ? How to know if a value is in Map ?
 			* Map: giống như object(có cặp key/value), nhưng key có thể là bất cứ giá trị gì kể cả à một object hay một map khác
-			* các cách iterate: dùng forEach hay for...of
+			* các cách iterate: dùng forEach hay for..of
+				* for .. of:
+				```
+				var myMap = new Map();
+				myMap.set(0, 'zero');
+				myMap.set(1, 'one');
+				for (var [key, value] of myMap) {
+				  console.log(key + ' = ' + value);
+				}
+				// 0 = zero
+				// 1 = one
+
+				for (var key of myMap.keys()) {
+				  console.log(key);
+				}
+				// 0
+				// 1
+
+				for (var value of myMap.values()) {
+				  console.log(value);
+				}
+				// zero
+				// one
+
+				for (var [key, value] of myMap.entries()) {
+				  console.log(key + ' = ' + value);
+				}
+				// 0 = zero
+				// 1 = one
+				```
+				*forEach:
+				```
+				myMap.forEach(function(value, key) {
+				  console.log(key + ' = ' + value);
+				});
+				// Will show 2 logs; first with "0 = zero" and second with "1 = one"
+				```
+				
 			* set: set(key, value). VD: map.set(a,1)
 			* get: get(key). VD: map.get(a)//1
 			* check tồn tại: has(key). VD: map.has(a)//true
+		* 1.12.2 Set: what is Set in JS ? How to iterate a Set ? How to get a value ? How to set a value ? How to know if a value is in Set 
+			* Set: tương tự như array là một list các value, nhưng các value trong set là độc nhất, nếu thêm một giá trị trùng thì set sẽ ko nhận
+			* các cách iterate: for .. of và forEach tương tự Map
+			* get: phải convert set về 1 array sau đó mới lấy được ra
+			* set: add(value)
+			* check tồn tại: has(value)
