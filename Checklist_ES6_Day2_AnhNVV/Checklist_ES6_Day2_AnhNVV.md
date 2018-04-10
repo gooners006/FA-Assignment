@@ -26,7 +26,8 @@
 			* Babel là 1 transpiler
 	* 1.3 Arrow Function
 		* 1.3.1 Arrow Function syntax ?
-			* ```(param1, param2, …, paramN) => { statements } 
+			* ```javascript
+				(param1, param2, …, paramN) => { statements } 
 				(param1, param2, …, paramN) => expression
 				// equivalent to: => { return expression; } 
 
@@ -41,7 +42,8 @@
 		* 1.3.2 Compare arrow function syntax to ES5 function syntax ?
 			* 2 cú pháp tương tự nhau, chỉ khác ở function và =>
 		* 1.3.3 Arrow function variations, try them in Babel Repl, fix error if any
-			* ```const f1 = () => 10;
+			* ```javascript
+				const f1 = () => 10;
 				const f2 = x  => 3;
 				const f3 = (...x) => 3;// ...
 				const f4 = (x, y) => 3;
@@ -57,14 +59,14 @@
 		* 1.3.4 True or false: arrow functions are anonymous ?
 			* arrow function là biểu thức hàm vô danh
 			* 
-			```
+			```javascript
 			const myFunc = x => 4;
 			console.log(myFunc.name);// in ra myFunc
 			```
 			
 		* 1.3.5 this
 			* Evaluate the code below, can you explain what happens ?
-			```
+			```javascript
 			var obj = {
 			  a: 10,
 			  method: function method() {
@@ -91,14 +93,14 @@
 			* Compare 2 Promise call below, what do you think ? If v is null or undefined what will happend ? How you handle that ?
 			* nếu v null hoặc undefined thì chương trình sẽ báo lỗi. nếu dùng arrow function thì khi debug sẽ khó tìm được nơi xảy ra lỗi hơn là dùng hàm bình thường
 				 
-				```
+				```javascript
 				p.then(function (v) { return v.id });
 				p.then(v => v.id);
 				```
 				br
 		1.3.7 Exercise 01: rewrite all function below with arrow functions and try to avoid curly braces {} as much as possible
 			* 
-			```
+			```javascript
 			(() => {
 
 				  var foo = (x) => {
@@ -141,7 +143,7 @@
   	* 1.4 Classes
 		* 1.4.1 Provide an example to create a new classed named Person which have 2 fields: id, name and 1 method: sayHello which print hello to the console
 			
-			```
+			```javascript
 			class Person{
 				String id;
 				String name;
@@ -154,7 +156,7 @@
 			* extends: dùng khi khai báo class để tạo một class là con của class khác
 			* super: dùng để truy cập và gọi vào hàm của cha của 1 object
 			* VD: 
-			```
+			```javascript
 			class Rectangle {
 			  constructor(height, width) {
 			    this.name = 'Rectangle';
@@ -187,7 +189,7 @@
 			}
 			```
 		* 1.4.3 Consider the following code, what will be printed out?
-			```
+			```javascript
 			class Cha {
 			  constructor() { this.id = 'a' }
 			  method() {
@@ -212,7 +214,7 @@
 			* var cho phép định nghĩa một biến global hoặc local
 		* 1.5.2 Closures scope, how do let work in closures, try example below
 			
-			```
+			```javascript
 			for (let i = 0; i < 3; i++) {
 			  let btn = document.getElementById('btn' + i);
 			  btn.addEventListener('click', () {
@@ -225,7 +227,7 @@
 		* 1.5.3 What is const ? Example ?
 			* khai báo biến không được thay đổi giá trị bằng phép gán, các biến như array hay object vẫn có thể được modify
 		* 1.5.4 Exercise: fix code below (anywhere) so the console.log will display true
-			```
+			```javascript
 			const x = 2, fns = [];
 
 			(function(){
@@ -241,7 +243,7 @@
 	* 1.6 Default Values and the Gather/Spread Operator
 		* 1.6.1 Default Values: how to define a functon with default value in ES5 ? And in ES6 ?
 			* Trong ES5: 
-				```
+				```javascript
 				function multiply(a, b) {
 				  b = (typeof b !== 'undefined') ?  b : 1;
 				  return a * b;
@@ -249,13 +251,13 @@
 
 				```
 			* Trong ES6: 
-				```
+				```javascript
 				function multiply(a, b = 1) {
 				  return a * b;
 				}
 				```
 		* 1.6.2 Lazy expression, evaluate the following code, how many times g have been called ?
-			```
+			```javascript
 			function g() {
 			  console.log('g');
 			}
@@ -269,7 +271,7 @@
 			// g được gọi 2 lần, f(1) không gọi g vì x=1. Nếu gán default value bằng 1 hàm thì khi gọi hàm chứa nó sẽ thực thi luôn hàm được gán làm giá trị mặc định
 			```
 		* 1.6.3 Evaluate the following code
-			```
+			```javascript
 			var x = 1;
 			function f(x = 2, fn = function() { return x }) {
 			  console.log(fn());
@@ -283,7 +285,7 @@
 		* 1.6.5 What is arguments in a JavaScript function ?
 			* object arguments(đối số) là một biến cục bộ, gần giống với 1 array,có ở trong mọi function trừ arrow function
 		* 1.6.6 … operator can be used in 2 differents ways, see code below:
-			```
+			```javascript
 			function f(...args) { // gather arguments
 			}
 
@@ -292,7 +294,7 @@
 			var z = [0, ...x, ...y ]; // spread out
 			```
 		* 1.6.7 In which way the … operator is used in following code
-			```
+			```javascript
 			function g(...arr) { // gather arguments
 			}
 
@@ -302,7 +304,7 @@
 			g(...a, ...b); // spread out
 			```
 		* 1.6.8 Exercise: fix the following code so console.log will print true
-			```
+			```javascript
 			function f(...arr) { 
 			arr[0].pop();
 			arr[1].shift();
@@ -321,7 +323,7 @@
 		* 1.7.1 What is destructuring ? Example ?
 			*  là một cú pháp cho phép tách dữ liệu được lưu trữ bên trong Objects hoặc Arrays và gán chúng cho các biến riêng biệt.
 			* VD: 
-			```
+			```javascript
 			const person = { first: 'Foo', last: 'Bar' };
 			const {first, last} = person;
 
@@ -339,7 +341,7 @@
 			```
 		* 1.7.2 Can you use destructuring and default values together ? Provide example?
 			* VD: 
-			```
+			```javascript
 			let arr = ['a'];
 			let [main, sub = 'b'] = arr;
 			
@@ -348,25 +350,25 @@
 			```
 		* 1.7.3 Dumping values: provide example that extract the 3rd element in an array and don't care about the 1st, 2nd element ? Provide example that swap 2 numbers ?
 			* extract the 3rd element in an array and don't care about the 1st, 2nd element
-			```
+			```javascript
 			let date = [10, 03, 2016]
 			let [, , y] = date;
 			```
 			* swap 2 numbers
-			```
+			```javascript
 			let date = [ 10, 03 ];
 			let [day , month] = date;
 			[day , month] = [month, day];
 			```
 		* 1.7.4 Nested Array Destructuring: in case we have an array like this [[1, 2], [3, 4], [5, 6]] use destructuring to extract the number 1 to variabled called a
 			* VD: 
-			```
+			```javascript
 			let arr=[[1, 2], [3, 4], [5, 6]]
 			let [[a, b], [c, d], [e, f]]=arr
 			```
 		* 1.7.5 Object Destructuring: provide an example that use destructuring to extract property in an object ?
 			* VD: 
-			```
+			```javascript
 			let characters = {a: 'a', b: 'b', c: 'c'};
 			let {a: d, b: e, c: f} = characters;
 
@@ -374,13 +376,13 @@
 			```
 		* 1.7.6 Nested Object Destructuring: in case we have an object like this { nested: { a: 10 } }, provide an example that use destructuring to extract value of a in inside nested object
 			* VD:
-			```
+			```javascript
 			let obj={ nested: { a: 10 } };
 			let {nested: {a} }=obj;
 			console.log(a);//10
 			```
 		* 1.7.7 Destructuring and Function Parameters: consider the array destructuring for parameters what will be printed out ?
-		```
+		```javascript
 		function fn([ x, y ]) {
 		  console.log(x, y);
 		}
@@ -390,7 +392,7 @@
 		fn([ ]); // undefined undefined
 		```
 		* 1.7.8 Exercise: practice object destructuring, object constructuring
-		```
+		```javascript
 		function ajax(url,cb) {
 		  // fake ajax response:
 		  cb({
@@ -441,7 +443,7 @@
 		```
 	* 1.8 Object Literal Extensions
 		* 1.8.1 Concise properties: consider the following code what do you think ?
-			```
+			```javascript
 			var x = 2, y = 3;
 			var o1 = {
 			  x: x,
@@ -457,7 +459,7 @@
 			// nếu thuộc tính có trùng key và value thì chỉ cần viết 1 lần
 			```
 		* 1.8.2 Concise Methods: consider the following code what do you think ?
-			```
+			```javascript
 			var o1 = {
 			  x: function() {
 			    console.log('o1.x');
@@ -477,7 +479,7 @@
 			// cũng có thể rút gọn khi viết phương thức giống như thuộc tính
 			```
 		* 1.8.3 ES5 Getter/Setter: consider the following code
-			```
+			```javascript
 			var o = {
 			  _id: 10,
 			  get id() { return this._id++; },
@@ -492,7 +494,7 @@
 		* 1.9.1 Template Strings: what is template strings ?
 			* là kiểu string cho phép nhúng biểu thức vào nó.
 		* 1.9.2 Consider this code below, rewrite it using ES6 template string
-			```
+			```javascript
 			var name = 'That Duy';
 			var chaoDuy = 'Hello ' + name + '!';
 
@@ -508,7 +510,7 @@
 			
 			```
 		* 1.9.3 Interpolated Expression: can we use function inside ${…} if yes provide an example
-			```
+			```javascript
 			function upper(s) {
 				return s.toUpperCase();
 			}
@@ -524,7 +526,7 @@
 			// to all of you READERS!
 			```
 		* 1.9.4 Tag Functions: consider the code below
-			```
+			```javascript
 			function f(strings, ...values) {
 			  console.log(strings);
 			  console.log(values);
@@ -534,7 +536,7 @@
 			f`Hello ${s}`; // in ra 2 mảng trong đó strings=['Hello', ""],values=['Fresher Academy'] 
 			```
 		* 1.9.5 Exercise
-			```
+			```javascript
 			function upper(strings,...values) {
 			  // TODO
 			let [a,c,e,g]=strings;
@@ -559,7 +561,7 @@
 			* import: nhận các dữ liệu được export từ module khác để sử dụng
 			* VD: 
 			trong module: 
-			```
+			```javascript
 			// module "my-module.js"
 				function cube(x) {
 				  return x * x * x;
@@ -577,41 +579,41 @@
 				export { cube, foo, graph };
 			```
 			trong chương trình: 
-			```
-			import { cube, foo, graph } from 'my-module';
-			graph.options = {
-			    color:'blue',
-			    thickness:'3px'
-			}; 
-			graph.draw();
-			console.log(cube(3)); // 27
-			console.log(foo);    // 4.555806215962888
+			```javascript
+				import { cube, foo, graph } from 'my-module';
+				graph.options = {
+				    color:'blue',
+				    thickness:'3px'
+				}; 
+				graph.draw();
+				console.log(cube(3)); // 27
+				console.log(foo);    // 4.555806215962888
 			```
 		* 1.10.3 What is export default ? How to import a exported default function ?
 			* export default là một cách viết 1 module chỉ có 1 export, nếu dùng named export thì sẽ có nhiều export
 			* có 2 cách viết default export:
-				```
-				function f(..) {
-					// ..
-				}
+				```javascript
+					function f(..) {
+						// ..
+					}
 
-				export default f;
-				//cách này sẽ export giá trị của biểu thức hàm f, ko phải identifier f, nghĩa là nó nhận một biểu thức. Nếu sau này trong module ta gán f cho 1 giá trị khác thì khi import sẽ lấy giá trị ban đầu, không lấy giá trị mới
+					export default f;
+					//cách này sẽ export giá trị của biểu thức hàm f, ko phải identifier f, nghĩa là nó nhận một biểu thức. Nếu sau này trong module ta gán f cho 1 giá trị khác thì khi import sẽ lấy giá trị ban đầu, không lấy giá trị mới
 				```
-				```
-				function f(..) {
-					// ..
-				}
+				```javascript
+					function f(..) {
+						// ..
+					}
 
-				export { f as default };
-				//dùng cách này thì khi thay đổi giá trị của f thì bên import cũng sẽ thay đổi giá trị theo
+					export { f as default };
+					//dùng cách này thì khi thay đổi giá trị của f thì bên import cũng sẽ thay đổi giá trị theo
 				```
 			* cách để import một default export:
-				```
-				import f from "f";
+				```javascript
+					import f from "f";
 
-				// or:
-				import { default as f } from "f";
+					// or:
+					import { default as f } from "f";
 				```
 		* 1.10.4 Circular Module Dependency: A imports B, B imports A, how does this work ?
 			* Cách hoạt động:
@@ -624,7 +626,7 @@
 			* Map: giống như object(có cặp key/value), nhưng key có thể là bất cứ giá trị gì kể cả à một object hay một map khác
 			* các cách iterate: dùng forEach hay for..of
 				* for .. of:
-				```
+				```javascript
 				var myMap = new Map();
 				myMap.set(0, 'zero');
 				myMap.set(1, 'one');
@@ -653,7 +655,7 @@
 				// 1 = one
 				```
 				*forEach:
-				```
+				```javascript
 				myMap.forEach(function(value, key) {
 				  console.log(key + ' = ' + value);
 				});
