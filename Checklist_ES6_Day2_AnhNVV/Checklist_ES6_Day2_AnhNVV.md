@@ -669,4 +669,33 @@
 			* get: phải convert set về 1 array sau đó mới lấy được ra
 			* set: add(value)
 			* check tồn tại: has(value)
-		* Weakmap same question like Map ? What is the difference between Map vs Weakmap
+		* 1.12.3 Weakmap same question like Map ? What is the difference between Map vs Weakmap
+			* WeakMap không thể duyệt qua được bởi vì các phần tử bên trong nó có thể bị xóa đi bởi GC
+			* WeakMap chỉ lấy object làm key. Khi trình duyệt thực hiện GC thì các phần tử trong nó có thể bị xóa đi, không như trong Map
+		* 1.12.4 Weakset same question like Set ? What is the difference between Set vs WeakSet
+			* WeakSet không thể duyệt qua được bởi vì các phần tử bên trong nó có thể bị xóa đi bởi GC
+			* WeakSet chỉ lấy object làm value. Khi trình duyệt thực hiện GC thì các phần tử trong nó có thể bị xóa đi, không như trong Map
+	* 1.13 Proxies
+		* Proxy là một object, sử dụng để thay đổi cách hoạt động của những hành động cơ bản của Object như roperty lookup, assignment, enumeration, function invocation, get, set, ...
+		* Cú pháp: 
+			```javascript
+			
+				const handler = {
+				  get: function(obj, prop) {
+				    console.log('A value has been accessed');
+				    return obj[prop];
+				  },
+				  set: function(obj, prop, value) {
+				    console.log(`${prop} is being set to ${value}`);
+				  }
+				}
+
+				const initialObj = {
+				  id: 1,
+				  name: 'Foo Bar'
+				}
+
+				const proxiedObj = new Proxy(initialObj, handler);
+
+				proxiedObj.age = 24
+			```
