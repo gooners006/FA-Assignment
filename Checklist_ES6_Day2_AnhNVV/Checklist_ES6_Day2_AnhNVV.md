@@ -701,3 +701,77 @@
 
 				proxiedObj.age = 24
 			```
+	* 1.14 Promises
+	* 1.15 Math + number + string + array + objects
+		* 1.15.1 Array add of(..), from(..)* and fill(..). Provide example using them
+			* Array.of(): tạo một array từ những đối số được truyền vào. VD:
+				```javascript
+					Array.of(1, 2, 3);   // [1, 2, 3]
+				```
+			* Array.from(): tạo 1 array từ một object gần giống với array hoặc iterable. VD:
+				```javascript
+					Array.from('foo'); 
+					// ["f", "o", "o"]
+				```
+			* Array.fill(): thay thế các giá trị trong array bằng một giá trị truyền vào khác. VD:
+				```javascript
+					[1, 2, 3].fill(4);               // [4, 4, 4]
+					[1, 2, 3].fill(4, 1);            // [1, 4, 4]
+					[1, 2, 3].fill(4, 1, 2);         // [1, 4, 3]
+					[1, 2, 3].fill(4, 1, 1);         // [1, 2, 3]
+					[1, 2, 3].fill(4, 3, 3);         // [1, 2, 3]
+				```
+		* 1.15.2 Provide example using Object.is and Object.assign
+			* Object.is: so sánh 2 giá trị. VD:
+				```javascript
+					Object.is('foo', 'foo');     // true
+					Object.is(window, window);   // true
+
+					Object.is('foo', 'bar');     // false
+					Object.is([], []);           // false
+
+					var test = { a: 1 };
+					Object.is(test, test);       // true
+
+					Object.is(null, null);       // true
+
+					// Special Cases
+					Object.is(0, -0);            // false
+					Object.is(-0, -0);           // true
+					Object.is(NaN, 0/0);         // true
+				```
+			* Object.assign: sao chép các giá trị của các thuộc tính của object sang object khác. VD: 
+				```javascript
+				const object1 = {
+				  a: 1,
+				  b: 2,
+				  c: 3
+				};
+
+				const object2 = Object.assign({c: 4, d: 5}, object1);
+
+				console.log(object2.c, object2.d);
+				// expected output: 3 5
+				```
+		* 1.15.3 Provide example using String.repeat and String.includes
+			* String.repeat: lặp lại một chuỗi bao nhiêu lần. VD: 
+				```javascript
+					'abc'.repeat(-1);   // RangeError
+					'abc'.repeat(0);    // ''
+					'abc'.repeat(1);    // 'abc'
+					'abc'.repeat(2);    // 'abcabc'
+					'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)
+					'abc'.repeat(1/0);  // RangeError
+				```
+			* String.includes: kiểm tra xem một chuỗi có tồn tại trong chuỗi khác hay không. VD: 
+				```javascript
+					var str = 'To be, or not to be, that is the question.';
+
+					console.log(str.includes('To be'));       // true
+					console.log(str.includes('question'));    // true
+					console.log(str.includes('nonexistent')); // false
+					console.log(str.includes('To be', 1));    // false
+					console.log(str.includes('TO BE'));       // false
+				```
+	* 1.16 Binary and Octal literals
+		* 
