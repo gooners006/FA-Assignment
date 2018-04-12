@@ -30,4 +30,4 @@
 		node filename.js
 		```
 	* Viết script để lắng nghe cổng 3000 trả về Hello World ?
-		* (https://github.com/gooners006/FreeCodeCamp-with-Tool/blob/master/HelloWorld/helloWorld.js)
+		* https://github.com/gooners006/FreeCodeCamp-with-Tool/blob/master/HelloWorld/helloWorld.js
