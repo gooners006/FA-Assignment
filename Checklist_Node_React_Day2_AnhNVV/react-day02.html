@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title></title>
+<!-- 2018-04-11 Wed 22:06 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Duong Tran">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script type="text/javascript">
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title"></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> React fundamentals</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Read: <a href="https://www.tutorialspoint.com/reactjs/reactjs_overview.htm">https://www.tutorialspoint.com/reactjs/reactjs_overview.htm</a>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> What exactly is React ? <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Read <a href="https://blog.andrewray.me/reactjs-for-stupid-people/">https://blog.andrewray.me/reactjs-for-stupid-people/</a>
+</li>
+<li><code>[&#xa0;]</code> Read <a href="https://facebook.github.io/react/docs/why-react.html">https://facebook.github.io/react/docs/why-react.html</a>
+</li>
+<li><code>[&#xa0;]</code> Read <a href="https://facebook.github.io/react/blog/2013/06/05/why-react.html">https://facebook.github.io/react/blog/2013/06/05/why-react.html</a>
+</li>
+<li><code>[&#xa0;]</code> Understand what is React, who build React
+</li>
+<li><code>[&#xa0;]</code> Understand why use React
+</li>
+<li><code>[&#xa0;]</code> Understand React advantages/disadvantages
+</li>
+<li><code>[&#xa0;]</code> Understand Virtual DOM
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Environment Setup <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Read: <a href="https://github.com/facebook/create-react-app">https://github.com/facebook/create-react-app</a>
+</li>
+<li><code>[&#xa0;]</code> What is <b>create-react-app</b>
+</li>
+<li><code>[&#xa0;]</code> Create a new app with <b>create-react-app</b>
+</li>
+<li><code>[&#xa0;]</code> How to runs the app created by <b>create-react-app</b> in development mode ?
+</li>
+<li><code>[&#xa0;]</code> Investigate a React project structure
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Hello World <code>[%]</code></h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand React <b>render</b> method
+</li>
+<li><code>[&#xa0;]</code> Modify the app to display 'Hello World' in app
+</li>
+<li><code>[&#xa0;]</code> Using Developer Tools to inspect HTML
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Component <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand what is a React Component ?
+</li>
+<li><code>[&#xa0;]</code> Understand how many type of React Component ?
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> JSX <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand what is JSX
+</li>
+<li><code>[&#xa0;]</code> Understand why JSX
+</li>
+<li><code>[&#xa0;]</code> Understand how to use JSX
+</li>
+<li><code>[&#xa0;]</code> Understand how to add JavaScript to JSX
+</li>
+<li><code>[&#xa0;]</code> Understand the limitation of JavaScript in JSX
+</li>
+<li><code>[&#xa0;]</code> Understand how we add style in JSX? How to
+</li>
+<li><code>[&#xa0;]</code> Understand what is JSX Comment
+</li>
+<li><code>[&#xa0;]</code> Practice put JSX Comment
+</li>
+<li><code>[&#xa0;]</code> Understand Naming Convention of JSX
+</li>
+<li><code>[&#xa0;]</code> Know why class and for of HTML is not the same in JSX
+</li>
+<li><code>[&#xa0;]</code> Practice know how to iterating &amp; rendering list in React: <a href="http://jasonjl.me/blog/2015/04/18/rendering-list-of-elements-in-react-with-jsx/">http://jasonjl.me/blog/2015/04/18/rendering-list-of-elements-in-react-with-jsx/</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> State <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand State in React (what, why and how it work?)
+</li>
+<li><code>[&#xa0;]</code> Know how to change State of a Component via user input or programmatically
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Props <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-7">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand Props in React
+</li>
+<li><code>[&#xa0;]</code> Understand why use props to create "reusable components"
+</li>
+<li><code>[&#xa0;]</code> Can we set default value for a Prop
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Props Validation <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand what is validation
+</li>
+<li><code>[&#xa0;]</code> Know how to validate Props in React
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Component Lifecycle Methods <code>[%]</code></h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand what is lifecycle methods
+</li>
+<li><code>[&#xa0;]</code> Understand why we need lifecycle methods
+</li>
+<li><code>[&#xa0;]</code> Understand 7 lifecycle methods of React Component (<a href="http://busypeoples.github.io/post/react-component-lifecycle/">http://busypeoples.github.io/post/react-component-lifecycle/</a>)
+</li>
+<li><code>[&#xa0;]</code> Understand componentDidMount = where you do DOM manipulation &amp; AJAX request
+</li>
+<li><code>[&#xa0;]</code> Understand componentWillMount = clean up after your React components gets destroyed
+</li>
+<li><code>[&#xa0;]</code> Practice: create a Component that have 7 lifecycle methods and observe the behaviour
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> Forms <code>[%]</code></h3>
+<div class="outline-text-3" id="text-1-10">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand how to to forms in React
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> Events <code>[%]</code></h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand how to handle events in React such as: click event on a button, keypress event on a input
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> Refs <code>[%]</code></h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand refs = how to acess DOM nodes within your React Component (<a href="https://reactjs.org/docs/refs-and-the-dom.html#the-ref-string-attribute">https://reactjs.org/docs/refs-and-the-dom.html#the-ref-string-attribute</a>)
+</li>
+<li><code>[&#xa0;]</code> Practice use refs to access a div and change style add text to it
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> Mixins <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Understand mixins = reuse methods across multiple components (<a href="https://reactjs.org/docs/components-and-props.html#mixins">https://reactjs.org/docs/components-and-props.html#mixins</a>)
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> Practice <code>[0%]</code></h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li><code>[&#xa0;]</code> Build Countdown app using React
+</li>
+<li><code>[&#xa0;]</code> Build Todo app using React
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. React fundamentals</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. What exactly is React ? <code>[0%]</code></a></li>
+<li><a href="#sec-1-2">1.2. Environment Setup <code>[0%]</code></a></li>
+<li><a href="#sec-1-3">1.3. Hello World <code>[%]</code></a></li>
+<li><a href="#sec-1-4">1.4. Component <code>[0%]</code></a></li>
+<li><a href="#sec-1-5">1.5. JSX <code>[0%]</code></a></li>
+<li><a href="#sec-1-6">1.6. State <code>[0%]</code></a></li>
+<li><a href="#sec-1-7">1.7. Props <code>[0%]</code></a></li>
+<li><a href="#sec-1-8">1.8. Props Validation <code>[0%]</code></a></li>
+<li><a href="#sec-1-9">1.9. Component Lifecycle Methods <code>[%]</code></a></li>
+<li><a href="#sec-1-10">1.10. Forms <code>[%]</code></a></li>
+<li><a href="#sec-1-11">1.11. Events <code>[%]</code></a></li>
+<li><a href="#sec-1-12">1.12. Refs <code>[%]</code></a></li>
+<li><a href="#sec-1-13">1.13. Mixins <code>[0%]</code></a></li>
+<li><a href="#sec-1-14">1.14. Practice <code>[0%]</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Duong Tran</p>
+<p class="date">Created: 2018-04-11 Wed 22:06</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org-mode</a> 9.1.7)</p>
+</div>
+</footer>
+</body>
+</html>
