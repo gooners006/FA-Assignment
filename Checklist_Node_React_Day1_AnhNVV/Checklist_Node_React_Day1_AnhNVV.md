@@ -31,3 +31,22 @@
 		```
 	* Viết script để lắng nghe cổng 3000 trả về Hello World ?
 		* https://github.com/gooners006/FreeCodeCamp-with-Tool/blob/master/HelloWorld/helloWorld.js
+* NPM
+	* NPM là gì ?. Nêu các lợi ích khi sử dụng trình quản lí package ?
+		* dễ quản lí các package và version của nó
+	* File package.json dùng để làm gì ? Cách tạo file và nêu chức năng của từng trường trong file package.json
+		* dùng để lưu thông tin các package, người khác chỉ cần file này có thể tải về các package cần thiết
+	* Dependency la gì ?, devDependencies là gì ?
+		* dev dùng khi build, dependency dùng khi chạy
+* Dev-tools
+	* Tìm hiểu node debugger là gì ?
+		* là debugger của node js
+	* Phân biệt babel-cli, babel-presets-es2015, babel-presets-stage-2 ?
+		* babel-cli: command line
+		* babel-presets-es2015: chuẩn es6
+		* babel-presets-stage-2: các tính năng mới đang chờ approve
+	* Webpack là gì ?. Ứng dụng của Webpack trong dự án NodeJS
+		* 
+	* Linter là gì ?, Cài đặt ES Lint bằng NPM
+		* là trình kiểm tra code
+* 
