@@ -124,3 +124,23 @@
 		* non-blocking là nhờ dùng async
 * Express
 	* Express là gì ?. Nếu chức năng của framework này ? 
+		* là một framework hỗ trợ cho nodejs trong việc phát triển các ứng dụng web
+	* WebServices la gi ? Có bao nhiêu loại: RESTful, SOAP
+		* là những thành phần ứng dụng để chuyển từ 1 ứng dụng thành ứng dụng web. Các ứng dụng web có thể liên lạc vs nhau để trao đổi dữ liệu
+		* có 2 loại chính là RESTful và SOAP
+			* SOAP: là một giao thức nền tảng XML, dùng để truy cập các web service
+			* RESTful: là một phong cách thiết kế, không phải là một giao thức như SOAP, do đó RESTful có thể dùng SOAP
+		* Có các loại RESTFull method nào ?
+			* POST: dùng để tạo tài nguyên mới
+			* GET: dùng để đọc tài nguyên
+			* PUT: update thông tin tài nguyên
+			* PATCH: thay đổi thông tin của tài nguyên
+			* DELETE: xóa tài nguyên
+		* Các bước tạo ra web server đơn giản bằng Express ?
+			* https://github.com/gooners006/Checklist-Exercise/tree/master/ExpressHelloWorld
+		* Routing là gì ?
+			* định tuyến là quyết định đường đi của các request sẽ có những phản hồi như thế nào từ ứng dụng
+		* Nếu các khái niệm Route method, Route path, Route param ?
+			* Route method: là các method http, nó gắn lienf với instance của class express
+			* route path: là đường dẫn đến nơi và client gửi request
+			* route param: những tham số để bắt các giá trị trên đường dẫn
