@@ -144,3 +144,5 @@
 			* Route method: là các method http, nó gắn lienf với instance của class express
 			* route path: là đường dẫn đến nơi và client gửi request
 			* route param: những tham số để bắt các giá trị trên đường dẫn
+		* Template engine là gì ?, trình bày cách để tạo template trong express
+			* 
