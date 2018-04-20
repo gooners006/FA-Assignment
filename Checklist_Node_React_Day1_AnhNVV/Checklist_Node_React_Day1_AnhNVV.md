@@ -145,4 +145,5 @@
 			* route path: là đường dẫn đến nơi và client gửi request
 			* route param: những tham số để bắt các giá trị trên đường dẫn
 		* Template engine là gì ?, trình bày cách để tạo template trong express
+			* dùng để thêm code vào html.
 			* 
